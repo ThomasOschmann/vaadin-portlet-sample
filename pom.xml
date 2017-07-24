@@ -193,6 +193,7 @@
 				</configuration>
 				<executions>
 					<execution>
+						<id>default</id>
 						<goals>
 							<goal>update-theme</goal>
 							<goal>compile-theme</goal>
@@ -200,6 +201,13 @@
 							<goal>compile</goal>
 						</goals>
 					</execution>
+<!-- 					<execution> -->
+<!-- 						<id>default-compile</id> -->
+<!-- 						<phase>compile</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>compile</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
 				</executions>
 			</plugin>
 			<plugin>

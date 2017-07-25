@@ -127,7 +127,22 @@
 			<version>${liferay.kernel.version}</version>
 			<scope>provided</scope>
 		</dependency>
-
+		
+		<!--
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.http.api</artifactId>
+			<version>2.3.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.service.http</artifactId>
+			<version>1.2.1</version>
+			<scope>runtime</scope>
+		</dependency>
+		
 		<!-- OSGi Dependencies -->
 		<dependency>
 			<groupId>org.osgi</groupId>
@@ -146,12 +161,6 @@
 			<artifactId>osgi.cmpn</artifactId>
 			<version>6.0.0</version>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>osgi.osgi.service.http</artifactId>
-			<version>1.2.1</version>
-			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 

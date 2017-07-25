@@ -19,13 +19,9 @@
 <!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
 
 		<private.package>
-			com.vaadin.ui.themes, 
-			com.vaadin.annotations, 
-			com.vaadin.osgi.resources, 
-			com.vaadin.ui, 
-			com.vaadin.server
 		</private.package>
 		<import.package>
+			org.osgi.service.http.HttpService
 		</import.package>
 		<export.package>
 			com.ctliv.vportlet

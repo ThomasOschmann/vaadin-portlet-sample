@@ -13,11 +13,18 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<vaadin.version>8.1.0.rc2</vaadin.version>
-		<vaadin.plugin.version>8.1.0.rc2</vaadin.plugin.version>
+		<vaadin.version>8.1.0</vaadin.version>
+		<vaadin.plugin.version>8.1.0</vaadin.plugin.version>
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 <!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
 
+		<private.package>
+			com.vaadin.ui.themes, 
+			com.vaadin.annotations, 
+			com.vaadin.osgi.resources, 
+			com.vaadin.ui, 
+			com.vaadin.server
+		</private.package>
 		<import.package>
 		</import.package>
 		<export.package>
@@ -160,36 +167,37 @@
 
 			<!-- As we are doing "inplace" GWT compilation, ensure the widgetset -->
 			<!-- directory is cleaned properly -->
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.4.1</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>src/main/webapp/VAADIN/widgetsets</directory>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<artifactId>maven-clean-plugin</artifactId> -->
+<!-- 				<version>2.4.1</version> -->
+<!-- 				<configuration> -->
+<!-- 					<filesets> -->
+<!-- 						<fileset> -->
+<!-- 							<directory>src/main/webapp/VAADIN/widgetsets</directory> -->
+<!-- 						</fileset> -->
+<!-- 					</filesets> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<archive>
-						<manifestFile>
-							${project.build.outputDirectory}/META-INF/MANIFEST.MF
-						</manifestFile>
-					</archive>
-				</configuration>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-jar-plugin</artifactId> -->
+<!-- 				<version>2.6</version> -->
+<!-- 				<configuration> -->
+<!-- 					<archive> -->
+<!-- 						<manifestFile> -->
+<!-- 							${project.build.outputDirectory}/META-INF/MANIFEST.MF -->
+<!-- 						</manifestFile> -->
+<!-- 					</archive> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 			<plugin>
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-maven-plugin</artifactId>
 				<version>${vaadin.plugin.version}</version>
 				<configuration>
 					<deploy>${project.build.directory}/gwt-deploy</deploy>
+					<webappDirectory>src/main/webapp/VAADIN/widgetsets</webappDirectory>
 				</configuration>
 				<executions>
 					<execution>
@@ -201,13 +209,6 @@
 							<goal>compile</goal>
 						</goals>
 					</execution>
-<!-- 					<execution> -->
-<!-- 						<id>default-compile</id> -->
-<!-- 						<phase>compile</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>compile</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
 				</executions>
 			</plugin>
 			<plugin>
@@ -224,36 +225,18 @@
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Version>${project.version}</Bundle-Version>
+						<Private-Package>${private.package}</Private-Package>
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
 <!-- 						<_exportcontents>*</_exportcontents> -->
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
-<!-- 						<Include-Resource>classes/VAADIN/widgetsets</Include-Resource> -->
+<!-- 						<Include-Resource>${project.build.directory}/classes/VAADIN/widgetsets</Include-Resource> -->
 						<Embed-Transitive>true</Embed-Transitive>
 					</instructions>
 				</configuration>
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<phase>prepare-package</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>bundle</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
 			</plugin>
+
 <!-- 			<plugin> -->
-<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<id>copy-dependencies</id> -->
-<!-- 						<phase>package</phase> -->
-<!-- 						<goals> -->
-<!-- 							<goal>copy-dependencies</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
-      <!-- 			<plugin> -->
 <!-- 				<groupId>biz.aQute.bnd</groupId> -->
 <!-- 				<artifactId>bnd-maven-plugin</artifactId> -->
 <!-- 				<version>3.3.0</version> -->
@@ -286,47 +269,5 @@
 		</pluginManagement>
 
 	</build>
-
-<!-- 	<profiles> -->
-<!-- 		<profile> -->
-<!-- 			<id>vaadin-prerelease</id> -->
-<!-- 			<activation> -->
-<!-- 				<activeByDefault>true</activeByDefault> -->
-<!-- 			</activation> -->
-
-<!-- 			<repositories> -->
-<!-- 				<repository> -->
-<!-- 					<id>vaadin-prereleases</id> -->
-<!-- 					<url>http://maven.vaadin.com/vaadin-prereleases</url> -->
-<!-- 				</repository> -->
-<!-- 				<repository> -->
-<!-- 					<id>vaadin-snapshots</id> -->
-<!-- 					<url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url> -->
-<!-- 					<releases> -->
-<!-- 						<enabled>false</enabled> -->
-<!-- 					</releases> -->
-<!-- 					<snapshots> -->
-<!-- 						<enabled>true</enabled> -->
-<!-- 					</snapshots> -->
-<!-- 				</repository> -->
-<!-- 			</repositories> -->
-<!-- 			<pluginRepositories> -->
-<!-- 				<pluginRepository> -->
-<!-- 					<id>vaadin-prereleases</id> -->
-<!-- 					<url>http://maven.vaadin.com/vaadin-prereleases</url> -->
-<!-- 				</pluginRepository> -->
-<!-- 				<pluginRepository> -->
-<!-- 					<id>vaadin-snapshots</id> -->
-<!-- 					<url>https://oss.sonatype.org/content/repositories/vaadin-snapshots/</url> -->
-<!-- 					<releases> -->
-<!-- 						<enabled>false</enabled> -->
-<!-- 					</releases> -->
-<!-- 					<snapshots> -->
-<!-- 						<enabled>true</enabled> -->
-<!-- 					</snapshots> -->
-<!-- 				</pluginRepository> -->
-<!-- 			</pluginRepositories> -->
-<!-- 		</profile> -->
-<!-- 	</profiles> -->
 
 </project>

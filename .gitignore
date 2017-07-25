@@ -8,6 +8,9 @@
 # Exclude all directories named "target"
 **/target/
 
+# Exclude VAADIN widgsets
+**/src/main/webapp/VAADIN/widgetsets/
+
 **/*.iml
 **/.ivy
 **/.classpath

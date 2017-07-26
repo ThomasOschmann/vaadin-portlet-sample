@@ -21,10 +21,12 @@
 		<private.package>
 		</private.package>
 		<import.package>
-			org.osgi.service.http.HttpService
+			!com.google*,
+			!com.vaadin.client*,
+			*
 		</import.package>
 		<export.package>
-			com.ctliv.vportlet
+			com.ctliv.vportlet;version="${project.version}"
 		</export.package>
 	</properties>
 
@@ -105,6 +107,21 @@
 <!-- 			<scope>compile</scope> -->
 		</dependency>
 
+		<!-- Other dependencies required at runtime (besides all maven dependencies) -->
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-liferay-integration</artifactId>
+			<version>${vaadin.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.yahoo.platform.yui</groupId>
+			<artifactId>yuicompressor</artifactId>
+			<version>2.4.6</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
 		<!-- Liferay dependencies -->
 
 		<dependency>
@@ -126,21 +143,6 @@
 			<artifactId>com.liferay.portal.kernel</artifactId>
 			<version>${liferay.kernel.version}</version>
 			<scope>provided</scope>
-		</dependency>
-		
-		<!--
-		<dependency>
-			<groupId>org.apache.felix</groupId>
-			<artifactId>org.apache.felix.http.api</artifactId>
-			<version>2.3.2</version>
-			<scope>runtime</scope>
-		</dependency>
-		-->
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.service.http</artifactId>
-			<version>1.2.1</version>
-			<scope>runtime</scope>
 		</dependency>
 		
 		<!-- OSGi Dependencies -->
@@ -244,9 +246,8 @@
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
 <!-- 						<_exportcontents>*</_exportcontents> -->
-						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
-<!-- 						<Include-Resource>${project.build.directory}/classes/VAADIN/widgetsets</Include-Resource> -->
-						<Embed-Transitive>true</Embed-Transitive>
+<!-- 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency> -->
+<!-- 						<Embed-Transitive>true</Embed-Transitive> -->
 					</instructions>
 				</configuration>
 			</plugin>

@@ -19,10 +19,10 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@Theme("mytheme")
+@Theme("com.ctliv.vportlet.theme")
 @SuppressWarnings("serial")
 @Widgetset("com.ctliv.vportlet.AppWidgetSet")
-@Component(service = UI.class, property = {
+@Component(immediate = true, service = UI.class, property = {
         "com.liferay.portlet.display-category=category.sample",
         "javax.portlet.name=VPortlet",
         "javax.portlet.display-name=My Vaadin portlet",

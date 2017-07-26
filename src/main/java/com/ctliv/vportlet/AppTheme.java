@@ -9,7 +9,7 @@ import com.vaadin.ui.themes.ValoTheme;
 public class AppTheme extends ValoTheme implements OsgiVaadinTheme {
     @Override
     public String getName() {
-        return "mytheme";
+        return "com.ctliv.vportlet.theme";
     }
 
 }

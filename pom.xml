@@ -17,6 +17,7 @@
 		<vaadin.plugin.version>8.1.0</vaadin.plugin.version>
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 <!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
+		<ctliv.repo.local>/C:/Users/Toncelli//Dev/workspace/ctliv.github.io/m2</ctliv.repo.local>
 
 		<private.package>
 		</private.package>
@@ -56,6 +57,14 @@
 		</pluginRepository>
 		-->
 	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<id>ctliv-repo</id>
+			<name>Public Ctliv Repository</name>
+			<url>https://ctliv.github.io/m2/</url>
+		</repository>
+	</distributionManagement>
 
 	<dependencyManagement>
 		<dependencies>
@@ -285,5 +294,28 @@
 		</pluginManagement>
 
 	</build>
+
+	<profiles>
+		<profile>
+			<id>local-deploy</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.8.2</version>
+						<configuration>
+							<altDeploymentRepository>ctliv-repo-local::default::file://${ctliv.repo.local}</altDeploymentRepository>
+							<uniqueVersion>false</uniqueVersion>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>

@@ -1,10 +1,12 @@
-package com.ctliv.vportlet;
+package com.ctliv.vportlet.ui;
 
 import javax.portlet.PortletContext;
+import javax.portlet.PortletMode;
 import javax.portlet.PortletSession;
 
 import org.osgi.service.component.annotations.Component;
 
+import com.ctliv.vportlet.ui.base.MultimodeExtUI;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -19,18 +21,19 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
-@Theme("com.ctliv.vportlet.theme")
 @SuppressWarnings("serial")
-@Widgetset("com.ctliv.vportlet.AppWidgetSet")
+@Widgetset(AppWidgetSet.NAME)
+@Theme(AppTheme.NAME)
 @Component(immediate = true, service = UI.class, property = {
         "com.liferay.portlet.display-category=category.sample",
         "javax.portlet.name=VPortlet",
+        "javax.portlet.portlet-mode=text/html;view;edit",
         "javax.portlet.display-name=My Vaadin portlet",
         "javax.portlet.security-role-ref=power-user,user",
         "com.vaadin.osgi.liferay.portlet-ui=true"})
-public class VPortletUI extends UI {
+public class VPortletUI extends MultimodeExtUI {
 
-    private static Log log = LogFactoryUtil.getLog(VPortletUI.class);
+    private Log log = LogFactoryUtil.getLog(this.getClass());
 
     @Override
     protected void init(VaadinRequest request) {
@@ -40,18 +43,19 @@ public class VPortletUI extends UI {
         final Integer numOfRegisteredUsers = getPortalCountOfRegisteredUsers();
         final VerticalLayout layout = new VerticalLayout();
         layout.setSpacing(false);
-        setContent(layout);
+//        setContent(layout);
+        this.setComponent(PortletMode.VIEW, layout);
 
         final Button button = new Button("Click Me");
         button.addClickListener(event -> {
-                layout.addComponent(new Label(
+                layout.addComponents(new Label(
                         "Hello, World!<br>This is portlet "
                                 + portletContextName
                                 + ".<br>This portal has "
                                 + numOfRegisteredUsers
                                 + " registered users (according to the data returned by Liferay API call).",
-                        ContentMode.HTML));
-
+                        ContentMode.HTML),
+                        new Label("My Bus is: " + uiBus));
             }
         );
         layout.addComponent(button);
@@ -72,7 +76,7 @@ public class VPortletUI extends UI {
         Integer result = null;
 
         try {
-            result = UserLocalServiceUtil.getUsersCount();
+            result = UserLocalServiceUtil.getService().getUsersCount();
         } catch (SystemException e) {
             log.error(e);
         }

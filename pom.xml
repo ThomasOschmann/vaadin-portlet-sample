@@ -17,17 +17,23 @@
 		<vaadin.plugin.version>8.1.0</vaadin.plugin.version>
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 <!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
-		<ctliv.repo.local>/C:/Users/Toncelli//Dev/workspace/ctliv.github.io/m2</ctliv.repo.local>
+<!-- 		<ctliv.repo.local>/C:/Users/Toncelli//Dev/workspace/ctliv.github.io/m2</ctliv.repo.local> -->
+
+<!-- 		<spring.version>4.3.10.RELEASE</spring.version> -->
+		<spring.version>4.1.9.RELEASE</spring.version>
+		<spring.scope>provided</spring.scope>
 
 		<private.package>
 		</private.package>
-		<import.package>
-			!com.google*,
-			!com.vaadin.client*,
-			*
-		</import.package>
+<!-- 		<import.package> -->
+<!-- 			!com.google*, -->
+<!-- 			!com.vaadin.client*, -->
+<!-- 			* -->
+<!-- 		</import.package> -->
+		<import.package>*</import.package>
 		<export.package>
-			com.ctliv.vportlet;version="${project.version}"
+			com.ctliv.vportlet.*;version="${project.version}",
+			com.ctliv.vportlet.bus.event;version="${project.version}"
 		</export.package>
 	</properties>
 
@@ -80,23 +86,30 @@
 
 	<dependencies>
 
+		<!-- Spring -->
 		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>22.0</version>
-			<scope>compile</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<scope>${spring.scope}</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<scope>${spring.scope}</scope>
+		</dependency>
+		
 		<!-- Vaadin dependencies -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
-<!-- 			<scope>compile</scope> -->
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
-<!-- 			<scope>compile</scope> -->
+			<scope>provided</scope>
 		</dependency>
 		<!-- Needed when using the widgetset optimizer (custom ConnectorBundleLoaderFactory).
 			For widgetset compilation, vaadin-client-compiler is automatically added
@@ -109,30 +122,64 @@
 			<artifactId>vaadin-client</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
-<!-- 			<scope>compile</scope> -->
+			<scope>provided</scope>
 		</dependency>
-
-		<!-- Other dependencies required at runtime (besides all maven dependencies) -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-liferay-integration</artifactId>
 			<version>${vaadin.version}</version>
-			<scope>runtime</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.yahoo.platform.yui</groupId>
-			<artifactId>yuicompressor</artifactId>
-			<version>2.4.6</version>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-spring</artifactId>
+			<scope>compile</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>			
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.7</version>
 			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>		
 		</dependency>
 
+		<!-- Other dependencies required at runtime (besides all maven dependencies) -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.yahoo.platform.yui</groupId> -->
+<!-- 			<artifactId>yuicompressor</artifactId> -->
+<!-- 			<version>2.4.6</version> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>22.0</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- Liferay dependencies -->
-
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.portal.kernel</artifactId>
+			<version>${liferay.kernel.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
 		<dependency>
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
@@ -147,13 +194,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.portal.kernel</artifactId>
-			<version>${liferay.kernel.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		
 		<!-- OSGi Dependencies -->
 		<dependency>
 			<groupId>org.osgi</groupId>
@@ -255,8 +295,9 @@
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
 <!-- 						<_exportcontents>*</_exportcontents> -->
-<!-- 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency> -->
-<!-- 						<Embed-Transitive>true</Embed-Transitive> -->
+						<Bundle-Activator>com.ctliv.vportlet.config.Activator</Bundle-Activator>
+						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
+						<Embed-Transitive>true</Embed-Transitive>
 					</instructions>
 				</configuration>
 			</plugin>

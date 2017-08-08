@@ -5,7 +5,7 @@
 
 	<groupId>com.ctliv</groupId>
 	<artifactId>vportlet</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>vportlet Portlet</name>
 	<packaging>bundle</packaging>
 
@@ -13,11 +13,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<vaadin.version>8.1.0</vaadin.version>
-		<vaadin.plugin.version>8.1.0</vaadin.plugin.version>
+		<vaadin.version>8.1.1</vaadin.version>
+		<vaadin.plugin.version>8.1.1</vaadin.plugin.version>
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 <!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
-<!-- 		<ctliv.repo.local>/C:/Users/Toncelli//Dev/workspace/ctliv.github.io/m2</ctliv.repo.local> -->
+<!-- 		<private.local.repo>/C:/Users/Toncelli//Dev/workspace/ctliv.github.io/m2</private.local.repo> -->
 
 <!-- 		<spring.version>4.3.10.RELEASE</spring.version> -->
 		<spring.version>4.1.9.RELEASE</spring.version>
@@ -25,15 +25,11 @@
 
 		<private.package>
 		</private.package>
-<!-- 		<import.package> -->
-<!-- 			!com.google*, -->
-<!-- 			!com.vaadin.client*, -->
-<!-- 			* -->
-<!-- 		</import.package> -->
 		<import.package>*</import.package>
 		<export.package>
 			com.ctliv.vportlet.*;version="${project.version}",
-			com.ctliv.vportlet.bus.event;version="${project.version}"
+			com.vaadin.spring.*,
+			org.slf4j.*
 		</export.package>
 	</properties>
 
@@ -111,17 +107,6 @@
 			<artifactId>vaadin-client-compiled</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Needed when using the widgetset optimizer (custom ConnectorBundleLoaderFactory).
-			For widgetset compilation, vaadin-client-compiler is automatically added
-			on the compilation classpath by vaadin-maven-plugin so normally there is
-			no need for an explicit dependency. -->
-		<!-- <dependency> <groupId>com.vaadin</groupId> <artifactId>vaadin-client-compiler</artifactId>
-			<scope>provided</scope> </dependency> -->
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client</artifactId>
-			<scope>provided</scope>
-		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
@@ -143,18 +128,6 @@
 					<artifactId>spring-web</artifactId>
 				</exclusion>
 			</exclusions>			
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
-			<scope>runtime</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>log4j</groupId>
-					<artifactId>log4j</artifactId>
-				</exclusion>
-			</exclusions>		
 		</dependency>
 
 		<!-- Other dependencies required at runtime (besides all maven dependencies) -->
@@ -291,6 +264,7 @@
 						<Bundle-Name>${project.name}</Bundle-Name>
 						<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 						<Bundle-Version>${project.version}</Bundle-Version>
+<!-- 						<Bundle-RequiredExecutionEnvironment>J2SE-1.8</Bundle-RequiredExecutionEnvironment> -->
 						<Private-Package>${private.package}</Private-Package>
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
@@ -350,7 +324,7 @@
 						<artifactId>maven-deploy-plugin</artifactId>
 						<version>2.8.2</version>
 						<configuration>
-							<altDeploymentRepository>ctliv-repo-local::default::file://${ctliv.repo.local}</altDeploymentRepository>
+							<altDeploymentRepository>private-local-repo::default::file://${private.local.repo}</altDeploymentRepository>
 							<uniqueVersion>false</uniqueVersion>
 						</configuration>
 					</plugin>

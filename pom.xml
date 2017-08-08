@@ -121,13 +121,13 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-spring</artifactId>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-web</artifactId>
-				</exclusion>
-			</exclusions>			
+			<scope>provided</scope>
+<!-- 			<exclusions> -->
+<!-- 				<exclusion> -->
+<!-- 					<groupId>org.springframework</groupId> -->
+<!-- 					<artifactId>spring-web</artifactId> -->
+<!-- 				</exclusion> -->
+<!-- 			</exclusions>			 -->
 		</dependency>
 
 		<!-- Other dependencies required at runtime (besides all maven dependencies) -->
@@ -150,6 +150,12 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.portal.kernel</artifactId>
 			<version>${liferay.kernel.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.util.slf4j</artifactId>
+			<version>1.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 		

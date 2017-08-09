@@ -29,6 +29,7 @@
 			com.vaadin.spring.*;version="[2,3)",
 			org.springframework.cglib.core;version="[4,5)",
 			org.springframework.cglib.proxy;version="[4,5)",
+			org.springframework.beans.factory;version="[4,5)",
 			*
 		</import.package>
 		<export.package>

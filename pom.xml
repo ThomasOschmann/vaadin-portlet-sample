@@ -27,6 +27,7 @@
 		</private.package>
 		<import.package>
 			com.vaadin.spring.*;version="[2,3)",
+			org.springframework.cglib.core;version="${spring.version}",
 			*
 		</import.package>
 		<export.package>
@@ -276,6 +277,7 @@
 						<Bundle-Activator>com.ctliv.vportlet.config.Activator</Bundle-Activator>
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
+						<_sources>true</_sources>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -330,7 +332,6 @@
 						<configuration>
 							<altDeploymentRepository>private-local-repo::default::file://${private.local.repo}</altDeploymentRepository>
 							<uniqueVersion>false</uniqueVersion>
-							<_sources>true</_sources>
 						</configuration>
 					</plugin>
 				</plugins>

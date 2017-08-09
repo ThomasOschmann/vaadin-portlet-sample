@@ -27,9 +27,7 @@
 		</private.package>
 		<import.package>*</import.package>
 		<export.package>
-			com.ctliv.vportlet.*;version="${project.version}",
-			com.vaadin.spring.*,
-			org.slf4j.*
+			com.ctliv.vportlet.*;version="${project.version}"
 		</export.package>
 	</properties>
 

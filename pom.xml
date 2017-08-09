@@ -25,7 +25,10 @@
 
 		<private.package>
 		</private.package>
-		<import.package>*</import.package>
+		<import.package>
+			com.vaadin.spring.*;version="[2,3)",
+			*
+		</import.package>
 		<export.package>
 			com.ctliv.vportlet.*;version="${project.version}"
 		</export.package>
@@ -327,6 +330,7 @@
 						<configuration>
 							<altDeploymentRepository>private-local-repo::default::file://${private.local.repo}</altDeploymentRepository>
 							<uniqueVersion>false</uniqueVersion>
+							<_sources>true</_sources>
 						</configuration>
 					</plugin>
 				</plugins>

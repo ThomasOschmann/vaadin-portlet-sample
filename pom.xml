@@ -27,7 +27,7 @@
 		</private.package>
 		<import.package>
 			com.vaadin.spring.*;version="[2,3)",
-			org.springframework.cglib.core;version="${spring.version}",
+			org.springframework.cglib.core;version="[4,5)",
 			*
 		</import.package>
 		<export.package>

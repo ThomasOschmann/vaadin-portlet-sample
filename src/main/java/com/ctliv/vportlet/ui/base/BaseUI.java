@@ -22,19 +22,15 @@ public abstract class BaseUI extends UI {
 
 	public BaseUI() {
 		super();
-//		UIID uiid = new UIID(UICounter.next());
-//		CurrentInstance.set(UIID.class, uiid);
-//		log.info("Created UI (uiid=" + uiid + "): " + this);
-		log.info("Created UI(" + this.getUIId() + ")");
-	}
-	
-	@PostConstruct
-	protected void postConstruct() {
 		try {
 			uiBus = BeanUtil.getBean(UIBusBean.class);
 		} catch(Exception e) { }
 		if (uiBus != null) uiBus.register(this); 
 		log.info("Initialized UI(" + this.getUIId() + ") with uiBus: " + uiBus);
+//		UIID uiid = new UIID(UICounter.next());
+//		CurrentInstance.set(UIID.class, uiid);
+//		log.info("Created UI (uiid=" + uiid + "): " + this);
+		log.info("Created UI(" + this.getUIId() + ")");
 	}
 	
 	@PreDestroy

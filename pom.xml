@@ -36,8 +36,7 @@
 <!-- 			* -->
 <!-- 		</import.package> -->
 		<import.package>
-			org.osgi.framework.*,
-			!bsh,
+			org.osgi.framework,
 			*
 		</import.package>
 		<export.package>

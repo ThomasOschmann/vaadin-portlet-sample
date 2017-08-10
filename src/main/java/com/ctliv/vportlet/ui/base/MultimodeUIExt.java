@@ -9,7 +9,7 @@ import com.vaadin.server.VaadinPortletService;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.AbstractComponent;
 
-public abstract class MultimodeExtUI extends BaseUI {
+public abstract class MultimodeUIExt extends UIExt {
 
 	private static final long serialVersionUID = 1L;
 	

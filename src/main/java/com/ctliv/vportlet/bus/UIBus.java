@@ -6,7 +6,7 @@ import com.vaadin.spring.annotation.UIScope;
 
 @Component
 @UIScope
-public class UIBusBean extends BaseEventBus {
+public class UIBus extends EventBusExt {
 
 	private static final long serialVersionUID = 1L;
 

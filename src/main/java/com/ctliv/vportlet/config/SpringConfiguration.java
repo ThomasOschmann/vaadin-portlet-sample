@@ -3,15 +3,15 @@ package com.ctliv.vportlet.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.ctliv.vportlet.bus.UIBusBean;
+import com.ctliv.vportlet.bus.UIBus;
 
 @Configuration
 //@ComponentScan
 public class SpringConfiguration {
 
 	@Bean
-	public UIBusBean uiBusBean() {
-		return new UIBusBean();
+	public UIBus uiBusBean() {
+		return new UIBus();
 	}
 	
 	@Bean

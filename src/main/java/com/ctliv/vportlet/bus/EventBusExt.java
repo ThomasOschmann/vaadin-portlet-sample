@@ -9,13 +9,25 @@ import com.google.common.eventbus.EventBus;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
-public class BaseEventBus extends EventBus implements Serializable {
+public class EventBusExt extends EventBus implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private static Log log = LogFactoryUtil.getLog(VPortletUI.class);
 	
+	private static int count = 0;
+	private int num = 0;
+	
 	private List<Object> subscribers = new ArrayList<Object>();
+	
+	public EventBusExt() {
+		super();
+		num = ++count;
+	}
+	
+	public int getNum() {
+		return num;
+	}
 	
 	public synchronized int getSize() {
 		return subscribers.size();

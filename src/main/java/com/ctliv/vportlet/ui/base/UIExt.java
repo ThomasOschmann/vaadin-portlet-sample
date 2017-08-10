@@ -2,7 +2,7 @@ package com.ctliv.vportlet.ui.base;
 
 import javax.annotation.PreDestroy;
 
-import com.ctliv.vportlet.bus.UIBusBean;
+import com.ctliv.vportlet.bus.UIBus;
 import com.ctliv.vportlet.bus.event.UIEvent;
 import com.ctliv.vportlet.bus.event.UIEvent.UIEventMode;
 import com.ctliv.vportlet.config.BeanUtil;
@@ -11,18 +11,18 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 
-public abstract class BaseUI extends UI {
+public abstract class UIExt extends UI {
 	
 	private static final long serialVersionUID = 1L;
 
     private Log log = LogFactoryUtil.getLog(this.getClass());
 	
-	protected UIBusBean uiBus;
+	protected UIBus uiBus;
 
-	public BaseUI() {
+	public UIExt() {
 		super();
 		try {
-			uiBus = BeanUtil.getBean(UIBusBean.class);
+			uiBus = BeanUtil.getBean(UIBus.class);
 		} catch(Exception e) { }
 		if (uiBus != null) uiBus.register(this); 
 		log.info("Initialized UI(" + this.getUIId() + ") with uiBus: " + uiBus);

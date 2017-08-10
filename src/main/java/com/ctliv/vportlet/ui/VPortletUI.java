@@ -6,7 +6,7 @@ import javax.portlet.PortletSession;
 
 import org.osgi.service.component.annotations.Component;
 
-import com.ctliv.vportlet.ui.base.MultimodeExtUI;
+import com.ctliv.vportlet.ui.base.MultimodeUIExt;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -31,7 +31,7 @@ import com.vaadin.ui.VerticalLayout;
         "javax.portlet.display-name=My Vaadin portlet",
         "javax.portlet.security-role-ref=power-user,user",
         "com.vaadin.osgi.liferay.portlet-ui=true"})
-public class VPortletUI extends MultimodeExtUI {
+public class VPortletUI extends MultimodeUIExt {
 
     private Log log = LogFactoryUtil.getLog(this.getClass());
 
@@ -55,7 +55,7 @@ public class VPortletUI extends MultimodeExtUI {
                                 + numOfRegisteredUsers
                                 + " registered users (according to the data returned by Liferay API call).",
                         ContentMode.HTML),
-                        new Label("My Bus is: " + uiBus));
+                        new Label("My Bus is: " + (uiBus == null ? "null" : uiBus.getNum())));
             }
         );
         layout.addComponent(button);

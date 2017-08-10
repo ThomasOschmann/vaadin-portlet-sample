@@ -26,6 +26,7 @@
 		<spring.scope>provided</spring.scope>
 
 		<private.package>
+			com.ctliv.vportlet.*;version="${project.version}"
 		</private.package>
 		<import.package>
 			com.vaadin.spring;version="[2,3)",

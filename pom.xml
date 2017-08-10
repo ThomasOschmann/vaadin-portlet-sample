@@ -35,9 +35,10 @@
 <!-- 			org.springframework.beans;version="[4,5)", -->
 <!-- 			* -->
 <!-- 		</import.package> -->
-<!-- 		<import.package> -->
-<!-- 			* -->
-<!-- 		</import.package> -->
+		<import.package>
+			org.osgi.framework.*,
+			*
+		</import.package>
 		<export.package>
 			com.ctliv.vportlet.ui;version="${project.version}",
 			com.ctliv.vportlet.ui.base;version="${project.version}"

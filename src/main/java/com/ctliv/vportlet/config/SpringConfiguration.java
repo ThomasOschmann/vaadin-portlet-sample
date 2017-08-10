@@ -22,9 +22,9 @@ public class SpringConfiguration {
 		return new UIBusBean();
 	}
 	
-//	@Bean
-//	public BeanUtil beanUtil() {
-//		return new BeanUtil();
-//	}
+	@Bean
+	public BeanUtil beanUtil() {
+		return new BeanUtil();
+	}
 	
 }

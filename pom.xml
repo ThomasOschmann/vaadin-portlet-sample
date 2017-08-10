@@ -37,6 +37,7 @@
 <!-- 		</import.package> -->
 		<import.package>
 			org.osgi.framework.*,
+			bsh;resolution:=optional,
 			*
 		</import.package>
 		<export.package>

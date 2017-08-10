@@ -1,6 +1,5 @@
 package com.ctliv.vportlet.ui.base;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import com.ctliv.vportlet.bus.UIBusBean;

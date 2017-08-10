@@ -4,8 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.ctliv.vportlet.bus.UIBus;
+import com.vaadin.spring.annotation.EnableVaadin;
 
 @Configuration
+@EnableVaadin
 //@ComponentScan
 public class SpringConfiguration {
 

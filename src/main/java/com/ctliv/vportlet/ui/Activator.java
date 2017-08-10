@@ -23,13 +23,13 @@ public class Activator implements BundleActivator {
 		for (String name : springContext.getBeanDefinitionNames()) {
 			log.info("  Bean: " + name);	
 		}
-		log.info("Spring context started");
+		log.info("Started: " + springContext);
 	}
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
 		((ConfigurableApplicationContext)springContext).close();
-		log.info("Spring context stopped");
+		log.info("Stopped: " + springContext);
 	}
 
 }

@@ -35,11 +35,12 @@
 <!-- 			org.springframework.beans;version="[4,5)", -->
 <!-- 			* -->
 <!-- 		</import.package> -->
-		<import.package>
-			*
-		</import.package>
+<!-- 		<import.package> -->
+<!-- 			* -->
+<!-- 		</import.package> -->
 		<export.package>
-			com.ctliv.vportlet.ui;version="${project.version}"
+			com.ctliv.vportlet.ui;version="${project.version}",
+			com.ctliv.vportlet.ui.base;version="${project.version}"
 		</export.package>
 	</properties>
 
@@ -289,7 +290,7 @@
 						<Export-Package>${export.package}</Export-Package>
 <!-- 						<_exportcontents>*</_exportcontents> -->
 						<Bundle-Activator>com.ctliv.vportlet.ui.Activator</Bundle-Activator>
-						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
+						<Embed-Dependency>*;scope=compile|runtime;inline=true</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 						<_sources>true</_sources>
 					</instructions>

@@ -13,28 +13,33 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		
 		<vaadin.version>8.1.1</vaadin.version>
 		<vaadin.plugin.version>8.1.1</vaadin.plugin.version>
-		<liferay.kernel.version>2.0.0</liferay.kernel.version>
+		<vaadin.scope>compile</vaadin.scope>
 <!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
-<!-- 		<private.local.repo>/C:/Users/Toncelli//Dev/workspace/ctliv.github.io/m2</private.local.repo> -->
+		
+		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 
-<!-- 		<spring.version>4.3.10.RELEASE</spring.version> -->
-		<spring.version>4.1.9.RELEASE</spring.version>
-		<spring.scope>provided</spring.scope>
+		<spring.version>4.3.10.RELEASE</spring.version>
+<!-- 		<spring.version>4.1.9.RELEASE</spring.version> -->
+		<spring.scope>compile</spring.scope>
 
 		<private.package>
 		</private.package>
+<!-- 		<import.package> -->
+<!-- 			com.vaadin.spring.*;version="[2,3)", -->
+<!-- 			org.springframework.cglib.core;version="[4,5)", -->
+<!-- 			org.springframework.cglib.proxy;version="[4,5)", -->
+<!-- 			org.springframework.beans.factory;version="[4,5)", -->
+<!-- 			org.springframework.beans;version="[4,5)", -->
+<!-- 			* -->
+<!-- 		</import.package> -->
 		<import.package>
-			com.vaadin.spring.*;version="[2,3)",
-			org.springframework.cglib.core;version="[4,5)",
-			org.springframework.cglib.proxy;version="[4,5)",
-			org.springframework.beans.factory;version="[4,5)",
-			org.springframework.beans;version="[4,5)",
 			*
 		</import.package>
 		<export.package>
-			com.ctliv.vportlet.*;version="${project.version}"
+			com.ctliv.vportlet.ui;version="${project.version}"
 		</export.package>
 	</properties>
 
@@ -110,41 +115,47 @@
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
-			<scope>provided</scope>
+			<scope>${vaadin.scope}</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
-			<scope>provided</scope>
+			<scope>${vaadin.scope}</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
-			<scope>provided</scope>
+			<scope>${vaadin.scope}</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-osgi-integration</artifactId>
+			<version>${vaadin.version}</version>
+			<scope>${vaadin.scope}</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-liferay-integration</artifactId>
 			<version>${vaadin.version}</version>
-			<scope>provided</scope>
+			<scope>${vaadin.scope}</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-spring</artifactId>
-			<scope>provided</scope>
-<!-- 			<exclusions> -->
-<!-- 				<exclusion> -->
-<!-- 					<groupId>org.springframework</groupId> -->
-<!-- 					<artifactId>spring-web</artifactId> -->
-<!-- 				</exclusion> -->
-<!-- 			</exclusions>			 -->
+			<scope>${vaadin.scope}</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+			</exclusions>			
 		</dependency>
 
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>22.0</version>
-			<scope>provided</scope>
+			<scope>compile</scope>
 		</dependency>
 
 		<!-- Liferay dependencies -->
@@ -158,7 +169,7 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.util.slf4j</artifactId>
 			<version>1.0.1</version>
-			<scope>provided</scope>
+			<scope>compile</scope>
 		</dependency>
 		
 		<dependency>
@@ -277,7 +288,7 @@
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
 <!-- 						<_exportcontents>*</_exportcontents> -->
-						<Bundle-Activator>com.ctliv.vportlet.config.Activator</Bundle-Activator>
+						<Bundle-Activator>com.ctliv.vportlet.ui.Activator</Bundle-Activator>
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 						<_sources>true</_sources>

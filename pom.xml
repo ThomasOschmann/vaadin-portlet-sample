@@ -16,28 +16,27 @@
 		
 		<vaadin.version>8.1.1</vaadin.version>
 		<vaadin.plugin.version>8.1.1</vaadin.plugin.version>
-		<vaadin.scope>compile</vaadin.scope>
+		<vaadin.scope>provided</vaadin.scope>
 <!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
 		
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 
-		<spring.version>4.3.10.RELEASE</spring.version>
-<!-- 		<spring.version>4.1.9.RELEASE</spring.version> -->
-		<spring.scope>compile</spring.scope>
+<!-- 		<spring.version>4.3.10.RELEASE</spring.version> -->
+		<spring.version>4.1.9.RELEASE</spring.version>
+		<spring.scope>provided</spring.scope>
 
 		<private.package>
 		</private.package>
+		<import.package>
+			com.vaadin.spring.*;version="[2,3)",
+			org.springframework.cglib.core;version="[4,5)",
+			org.springframework.cglib.proxy;version="[4,5)",
+			org.springframework.beans.*;version="[4,5)",
+			*
+		</import.package>
 <!-- 		<import.package> -->
-<!-- 			com.vaadin.spring.*;version="[2,3)", -->
-<!-- 			org.springframework.cglib.core;version="[4,5)", -->
-<!-- 			org.springframework.cglib.proxy;version="[4,5)", -->
-<!-- 			org.springframework.beans.factory;version="[4,5)", -->
-<!-- 			org.springframework.beans;version="[4,5)", -->
 <!-- 			* -->
 <!-- 		</import.package> -->
-		<import.package>
-			*,org.osgi.framework,!bsh
-		</import.package>
 		<export.package>
 			com.ctliv.vportlet.ui;version="${project.version}",
 			com.ctliv.vportlet.ui.base;version="${project.version}"
@@ -170,7 +169,7 @@
 			<groupId>com.liferay.portal</groupId>
 			<artifactId>com.liferay.util.slf4j</artifactId>
 			<version>1.0.1</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		
 		<dependency>

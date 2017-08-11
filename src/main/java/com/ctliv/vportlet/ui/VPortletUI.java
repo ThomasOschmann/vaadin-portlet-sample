@@ -5,7 +5,6 @@ import javax.portlet.PortletMode;
 import javax.portlet.PortletSession;
 
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.ServiceScope;
 
 import com.ctliv.vportlet.ui.base.MultimodeUIExt;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -17,7 +16,6 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.WrappedPortletSession;
 import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
@@ -32,9 +30,8 @@ import com.vaadin.ui.VerticalLayout;
         "javax.portlet.portlet-mode=text/html;view;edit",
         "javax.portlet.display-name=My Vaadin portlet",
         "javax.portlet.security-role-ref=power-user,user",
-        "com.vaadin.osgi.liferay.portlet-ui=true"},
-		scope = ServiceScope.PROTOTYPE)
-@SpringUI
+        "com.vaadin.osgi.liferay.portlet-ui=true"})
+//@SpringUI
 public class VPortletUI extends MultimodeUIExt {
 
     private Log log = LogFactoryUtil.getLog(this.getClass());

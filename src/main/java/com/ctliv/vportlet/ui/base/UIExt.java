@@ -27,7 +27,7 @@ public abstract class UIExt extends UI {
 		try {
 			uiBus = BeanUtil.getBean(UIBus.class);
 			uiBus.register(this);
-			log.info("Created bus: " + uiBus.objToString());
+			log.debug("Created bus: " + uiBus.objToString());
 		} catch(Exception e) { }
 	}
 	

@@ -8,6 +8,7 @@ import com.ctliv.lvs.component.DebugLayout;
 import com.ctliv.lvs.spring.util.BeanUtil;
 import com.ctliv.lvs.ui.MultimodeUIExt;
 import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;

@@ -23,10 +23,11 @@ public class DebugLayout extends VerticalLayout {
 
 	@PostConstruct
 	private void postCostruct() {
+		log.debug("Initializing...");
 		this.addComponent(new Label("Portlet: " + getPortletContextName()));
 		this.addComponent(new Label("Mode: " + getPortletMode()));
 		this.addComponent(new Label("Users registered: " + 
-				getPortalCountOfRegisteredUsers()));
+				getPortalCountOfRegisteredUsers().toString()));
 		this.addComponent(new Label("UIBus: " + uiBus.objToString()));
 		uiBus.register(this);
 		log.debug("Initialized");

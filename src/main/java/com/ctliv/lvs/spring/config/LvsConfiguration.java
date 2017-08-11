@@ -24,8 +24,7 @@ public class LvsConfiguration {
 		return new UIBus();	
 	}
 	
-	@Bean(initMethod="postConstruct", destroyMethod="preDestroy")
-	@Scope("prototype")
+	@Bean @Scope("prototype")
 	public DebugLayout debugLayout() {
 		return new DebugLayout();
 	}

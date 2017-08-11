@@ -5,6 +5,7 @@ import javax.portlet.PortletMode;
 import javax.portlet.PortletSession;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ServiceScope;
 
 import com.ctliv.vportlet.ui.base.MultimodeUIExt;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -24,13 +25,14 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 @Widgetset(AppWidgetSet.NAME)
 @Theme(AppTheme.NAME)
-@Component(immediate = true, service = UI.class, property = {
+@Component(immediate = false, service = UI.class, property = {
         "com.liferay.portlet.display-category=category.sample",
         "javax.portlet.name=VPortlet",
         "javax.portlet.portlet-mode=text/html;view;edit",
         "javax.portlet.display-name=My Vaadin portlet",
         "javax.portlet.security-role-ref=power-user,user",
-        "com.vaadin.osgi.liferay.portlet-ui=true"})
+        "com.vaadin.osgi.liferay.portlet-ui=true"},
+		scope = ServiceScope.PROTOTYPE)
 public class VPortletUI extends MultimodeUIExt {
 
     private Log log = LogFactoryUtil.getLog(this.getClass());

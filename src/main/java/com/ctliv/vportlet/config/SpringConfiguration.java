@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.ctliv.vportlet.bus.UIBus;
 import com.vaadin.spring.annotation.EnableVaadin;
+import com.vaadin.spring.annotation.UIScope;
 
 @Configuration
 @EnableVaadin
@@ -12,12 +13,19 @@ import com.vaadin.spring.annotation.EnableVaadin;
 public class SpringConfiguration {
 
 	@Bean
-	public UIBus uiBusBean() {
-		return new UIBus();	}
+	@UIScope
+	public UIBus uiBus() {
+		return new UIBus();	
+	}
 	
-	@Bean
+	@Bean 
 	public BeanUtil beanUtil() {
 		return new BeanUtil();
 	}
+	
+//	@Bean
+//	public VPortletUI vPortletUI() {
+//		return new VPortletUI();
+//	}
 	
 }

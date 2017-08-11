@@ -17,6 +17,7 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.WrappedPortletSession;
 import com.vaadin.shared.ui.ContentMode;
+import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
@@ -33,6 +34,7 @@ import com.vaadin.ui.VerticalLayout;
         "javax.portlet.security-role-ref=power-user,user",
         "com.vaadin.osgi.liferay.portlet-ui=true"},
 		scope = ServiceScope.PROTOTYPE)
+@SpringUI
 public class VPortletUI extends MultimodeUIExt {
 
     private Log log = LogFactoryUtil.getLog(this.getClass());

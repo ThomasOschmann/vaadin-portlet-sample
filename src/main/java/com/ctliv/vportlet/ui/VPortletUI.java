@@ -7,6 +7,7 @@ import org.osgi.service.component.annotations.Component;
 import com.ctliv.lvs.component.DebugLayout;
 import com.ctliv.lvs.spring.util.BeanUtil;
 import com.ctliv.lvs.ui.MultimodeUIExt;
+import com.liferay.portal.kernel.log.Log;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
@@ -25,7 +26,7 @@ import com.vaadin.ui.UI;
 //@SpringUI
 public class VPortletUI extends MultimodeUIExt {
 
-//    private Log log = LogFactoryUtil.getLog(this.getClass());
+    private Log log = LogFactoryUtil.getLog(this.getClass());
 
     @Override
     protected void init(VaadinRequest request) {
@@ -54,7 +55,7 @@ public class VPortletUI extends MultimodeUIExt {
     	
     	this.setComponent(PortletMode.VIEW, BeanUtil.getBean(DebugLayout.class));
     	this.setComponent(PortletMode.EDIT, BeanUtil.getBean(DebugLayout.class));
-        
+        log.debug("UI set");
     }
 
 //    private String getPortletContextName(VaadinRequest request) {

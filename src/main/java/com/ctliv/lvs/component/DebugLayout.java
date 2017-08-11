@@ -1,6 +1,7 @@
 package com.ctliv.lvs.component;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,6 +28,13 @@ public class DebugLayout extends VerticalLayout {
 		this.addComponent(new Label("Users registered: " + 
 				getPortalCountOfRegisteredUsers()));
 		this.addComponent(new Label("UIBus: " + uiBus.objToString()));
+		uiBus.register(this);
+		log.debug("Initialized");
+	}
+	
+	@PreDestroy
+	private void preDestroy() {
+		uiBus.unregister(this);
 	}
 
 	private String getPortletMode() {

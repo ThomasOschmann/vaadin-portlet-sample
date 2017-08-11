@@ -34,6 +34,7 @@
 			org.springframework.cglib.reflect;version="[4,5)",
 			org.springframework.beans;version="[4,5)",
 			org.springframework.beans.factory;version="[4,5)",
+			com.ctliv.lvs.*;version="${project.version}",
 			*
 		</import.package>
 		<export.package>

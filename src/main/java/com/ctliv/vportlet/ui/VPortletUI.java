@@ -57,7 +57,7 @@ public class VPortletUI extends MultimodeUIExt {
                                 + numOfRegisteredUsers
                                 + " registered users (according to the data returned by Liferay API call).",
                         ContentMode.HTML),
-                        new Label("My Bus is: " + (uiBus == null ? "null" : uiBus.getNum())));
+                        new Label("My Bus is: " + (uiBus == null ? "null" : uiBus.objToString())));
             }
         );
         layout.addComponent(button);

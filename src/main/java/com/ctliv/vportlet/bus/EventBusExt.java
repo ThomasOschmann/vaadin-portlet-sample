@@ -15,18 +15,10 @@ public class EventBusExt extends EventBus implements Serializable {
 
 	private static Log log = LogFactoryUtil.getLog(VPortletUI.class);
 	
-	private static int count = 0;
-	private int num = 0;
-	
 	private List<Object> subscribers = new ArrayList<Object>();
 	
 	public EventBusExt() {
 		super();
-		num = ++count;
-	}
-	
-	public int getNum() {
-		return num;
 	}
 	
 	public synchronized int getSize() {
@@ -75,6 +67,11 @@ public class EventBusExt extends EventBus implements Serializable {
 	public void post(Object event) {
 		log.info("Bus [" + this + "] posting: " + (event == null ? "(null)" : event.toString()));
 		super.post(event);
+	}
+	
+	public String objToString() {
+	     return this.getClass().getName() + "@" + 
+	            Integer.toHexString(System.identityHashCode(this));
 	}
 	
 //	public synchronized void delegatePost(BaseEvent event) {

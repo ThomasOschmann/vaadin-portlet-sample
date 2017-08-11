@@ -29,7 +29,6 @@
 			com.ctliv.vportlet.*;version="${project.version}"
 		</private.package>
 		<import.package>
-			com.vaadin.spring;version="[2,3)",
 			org.springframework.cglib.core;version="[4,5)",
 			org.springframework.cglib.proxy;version="[4,5)",
 			org.springframework.cglib.reflect;version="[4,5)",
@@ -37,12 +36,8 @@
 			org.springframework.beans.factory;version="[4,5)",
 			*
 		</import.package>
-<!-- 		<import.package> -->
-<!-- 			* -->
-<!-- 		</import.package> -->
 		<export.package>
-			com.ctliv.vportlet.ui;version="${project.version}",
-			com.ctliv.vportlet.ui.base;version="${project.version}"
+			com.ctliv.vportlet.ui;version="${project.version}"
 		</export.package>
 	</properties>
 
@@ -100,18 +95,18 @@
 
 	<dependencies>
 
-		<!-- Spring -->
+		<!-- Liferay dependencies -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-			<scope>${spring.scope}</scope>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.portal.kernel</artifactId>
+			<version>${liferay.kernel.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-			<scope>${spring.scope}</scope>
+			<groupId>com.liferay.portal</groupId>
+			<artifactId>com.liferay.util.slf4j</artifactId>
+			<version>1.0.1</version>
+			<scope>provided</scope>
 		</dependency>
 		
 		<!-- Vaadin dependencies -->
@@ -142,10 +137,26 @@
 			<version>${vaadin.version}</version>
 			<scope>${vaadin.scope}</scope>
 		</dependency>
+		
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<scope>${spring.scope}</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<scope>${spring.scope}</scope>
+		</dependency>
+		
+		<!-- Vaadin-spring bridge -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-spring</artifactId>
-			<scope>${vaadin.scope}</scope>
+			<scope>compile</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
@@ -161,20 +172,6 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Liferay dependencies -->
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.portal.kernel</artifactId>
-			<version>${liferay.kernel.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.util.slf4j</artifactId>
-			<version>1.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-		
 		<dependency>
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>

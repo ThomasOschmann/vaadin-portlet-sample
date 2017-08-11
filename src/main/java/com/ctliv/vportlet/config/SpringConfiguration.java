@@ -13,8 +13,7 @@ public class SpringConfiguration {
 
 	@Bean
 	public UIBus uiBusBean() {
-		return new UIBus();
-	}
+		return new UIBus();	}
 	
 	@Bean
 	public BeanUtil beanUtil() {

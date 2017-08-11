@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ctliv.vportlet.ui.VPortletUI;
 import com.google.common.eventbus.EventBus;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -13,7 +12,7 @@ public class EventBusExt extends EventBus implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private static Log log = LogFactoryUtil.getLog(VPortletUI.class);
+	protected Log log = LogFactoryUtil.getLog(EventBusExt.class);
 	
 	private List<Object> subscribers = new ArrayList<Object>();
 	
@@ -28,7 +27,7 @@ public class EventBusExt extends EventBus implements Serializable {
 	@Override
 	public synchronized void register(Object object) {
 		if (object == null) {
-			log.info("Received null object reference!");
+			log.warn("Received registration request for object: null");
 			throw new IllegalArgumentException("Invalid registration for object (null)");
 		}
 		//Stores object in subscribers' list to allow cleanup
@@ -36,21 +35,21 @@ public class EventBusExt extends EventBus implements Serializable {
 			subscribers.add(object);
 			//Registers object once in wrapped EventBus
 			super.register(object);
-			log.info("Bus [" + this + "] registered: " + object + " (size is " + Integer.toString(subscribers.size()) + ")");
+			log.info("Registered: " + object + " (bus size " + Integer.toString(subscribers.size()) + ")");
 		}
 	}
 
 	@Override
 	public synchronized void unregister(Object object) {
 		if (object == null) {
-			log.info("Received null object reference!");
-			throw new IllegalArgumentException("Invalid deregistration for object (null)");
+			log.warn("Received unregistration request for object: null");
+			return;
 		}
 		//Removes object in subscribers' list
 		subscribers.remove(object);
 		//Unregisters object from wrapped EventBus
 		super.unregister(object);
-		log.info("Bus [" + this + "] unregistered: " + object + " (size is " + Integer.toString(subscribers.size()) + ")");
+		log.info("Unregistered: " + object + " (bus size: " + Integer.toString(subscribers.size()) + ")");
 	}
 
 	public synchronized void cleanup() {
@@ -65,7 +64,8 @@ public class EventBusExt extends EventBus implements Serializable {
 
 	@Override
 	public void post(Object event) {
-		log.info("Bus [" + this + "] posting: " + (event == null ? "(null)" : event.toString()));
+		if (event == null) return;
+		log.info("Posting: " + event);
 		super.post(event);
 	}
 	

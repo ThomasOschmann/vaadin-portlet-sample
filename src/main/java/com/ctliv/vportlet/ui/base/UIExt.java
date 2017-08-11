@@ -4,7 +4,6 @@ import com.ctliv.vportlet.bus.UIBus;
 import com.ctliv.vportlet.bus.event.UIEvent;
 import com.ctliv.vportlet.bus.event.UIEvent.UIEventMode;
 import com.ctliv.vportlet.config.BeanUtil;
-import com.jpaex.core.ui.UICounter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.vaadin.server.VaadinRequest;

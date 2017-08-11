@@ -26,7 +26,8 @@
 		<spring.scope>provided</spring.scope>
 
 		<private.package>
-			com.ctliv.vportlet.*;version="${project.version}"
+			com.ctliv.vportlet.*;version="${project.version}",
+			com.ctliv.lvs.*;version="${project.version}"
 		</private.package>
 		<import.package>
 			org.springframework.cglib.core;version="[4,5)",
@@ -34,12 +35,6 @@
 			org.springframework.cglib.reflect;version="[4,5)",
 			org.springframework.beans;version="[4,5)",
 			org.springframework.beans.factory;version="[4,5)",
-			com.ctliv.lvs.bus;version="${project.version}",
-			com.ctliv.lvs.bus.event;version="${project.version}",
-			com.ctliv.lvs.component;version="${project.version}",
-			com.ctliv.lvs.config;version="${project.version}",
-			com.ctliv.lvs.util;version="${project.version}",
-			com.ctliv.lvs.ui;version="${project.version}",
 			*
 		</import.package>
 		<export.package>

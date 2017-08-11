@@ -46,7 +46,7 @@ public class VPortletUI extends MultimodeUIExt {
         final VerticalLayout layout = new VerticalLayout();
         layout.setSpacing(false);
 //        setContent(layout);
-        this.setComponent(PortletMode.VIEW, layout);
+//        this.setComponent(PortletMode.VIEW, layout);
 
         final Button button = new Button("Click Me");
         button.addClickListener(event -> {
@@ -65,7 +65,7 @@ public class VPortletUI extends MultimodeUIExt {
         log.debug("Created: " + debugLayout);
         this.setComponent(PortletMode.EDIT, debugLayout);
     	
-//    	this.setComponent(PortletMode.VIEW, BeanUtil.getBean(DebugLayout.class));
+    	this.setComponent(PortletMode.VIEW, BeanUtil.getBean(DebugLayout.class));
 //    	this.setComponent(PortletMode.EDIT, BeanUtil.getBean(DebugLayout.class));
         log.debug("UI set");
     }

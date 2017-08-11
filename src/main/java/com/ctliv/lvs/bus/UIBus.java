@@ -1,4 +1,4 @@
-package com.ctliv.vportlet.bus;
+package com.ctliv.lvs.bus;
 
 //@Component
 //@UIScope

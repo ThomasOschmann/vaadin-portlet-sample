@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.ctliv.vportlet.config.SpringConfiguration;
+import com.ctliv.vportlet.config.VPortletConfiguration;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
@@ -18,7 +18,7 @@ public class Activator implements BundleActivator {
 	
 	@Override
 	public void start(BundleContext context) throws Exception {
-		springContext = new AnnotationConfigApplicationContext(SpringConfiguration.class);
+		springContext = new AnnotationConfigApplicationContext(VPortletConfiguration.class);
 		log.info("Found " + springContext.getBeanDefinitionCount() + " beans");
 		for (String name : springContext.getBeanDefinitionNames()) {
 			log.info("  Bean: " + name);	

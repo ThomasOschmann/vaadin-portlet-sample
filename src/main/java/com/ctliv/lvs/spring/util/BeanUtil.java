@@ -1,4 +1,4 @@
-package com.ctliv.vportlet.config;
+package com.ctliv.lvs.spring.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

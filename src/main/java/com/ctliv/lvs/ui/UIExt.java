@@ -1,9 +1,9 @@
-package com.ctliv.vportlet.ui.base;
+package com.ctliv.lvs.ui;
 
-import com.ctliv.vportlet.bus.UIBus;
-import com.ctliv.vportlet.bus.event.UIEvent;
-import com.ctliv.vportlet.bus.event.UIEvent.UIEventMode;
-import com.ctliv.vportlet.config.BeanUtil;
+import com.ctliv.lvs.bus.UIBus;
+import com.ctliv.lvs.bus.event.UIEvent;
+import com.ctliv.lvs.bus.event.UIEvent.UIEventMode;
+import com.ctliv.lvs.spring.util.BeanUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.vaadin.server.VaadinRequest;
@@ -23,39 +23,39 @@ public abstract class UIExt extends UI {
 		super();
 		UIID uiid = new UIID(UICounter.next());
 		CurrentInstance.set(UIID.class, uiid);
-		log.info("Created UI (uiid=" + uiid + "): " + this);
+		log.debug("Created UI (uiid=" + uiid + "): " + this);
 		try {
 			uiBus = BeanUtil.getBean(UIBus.class);
 			uiBus.register(this);
-			log.debug("Created bus: " + uiBus.objToString());
+			log.debug("Created UI bus: " + uiBus.objToString());
 		} catch(Exception e) { }
 	}
 	
 //	@PreDestroy
 //	protected void preDestroy() {
 //		if (uiBus != null) uiBus.unregister(this);
-//		log.info("Destroyed UI(" + this.getUIId() + ")");
+//		log.debug("Destroyed UI(" + this.getUIId() + ")");
 //	}
 
 	@Override
 	protected void refresh(VaadinRequest request) {
 		super.refresh(request);
 		if (uiBus != null) uiBus.post(new UIEvent(this, UIEventMode.REFRESH));
-		log.info("Refreshed UI(" + this.getUIId() + ")");
+		log.debug("Refreshed UI: " + this);
 	}
 
 	@Override
 	public void attach() {
 		super.attach();
 		if (uiBus != null) uiBus.post(new UIEvent(this, UIEventMode.ATTACH));
-		log.info("Attached UI(" + this.getUIId() + ")");
+		log.debug("Attached UI: " + this);
 	}
 
 	@Override
 	public void detach() {
 		super.detach();
 		if (uiBus != null) uiBus.post(new UIEvent(this, UIEventMode.DETACH));
-		log.info("Detached UI(" + this.getUIId() + ")");
+		log.debug("Detached UI: " + this);
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.ctliv.vportlet.bus.event;
+package com.ctliv.lvs.bus.event;
 
 public class BaseEvent {
 

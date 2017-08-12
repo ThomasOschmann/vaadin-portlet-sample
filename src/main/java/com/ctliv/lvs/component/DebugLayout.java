@@ -20,6 +20,10 @@ public class DebugLayout extends VerticalLayout {
 	private Log log = LogFactoryUtil.getLog(this.getClass());
 
 	@Autowired private UIBus uiBus;
+	
+	public DebugLayout() {
+		log.debug("Creating...");
+	}
 
 	@PostConstruct
 	private void postCostruct() {

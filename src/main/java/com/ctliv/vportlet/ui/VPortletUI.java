@@ -20,7 +20,7 @@ import com.vaadin.ui.UI;
 @Component(immediate = false, service = UI.class, property = {
         "com.liferay.portlet.display-category=category.sample",
         "javax.portlet.name=SampleVSP",
-        "javax.portlet.portlet-mode=text/html,;view,edit",
+        "javax.portlet.portlet-mode=text/html;view,edit",
         "javax.portlet.display-name=Sample Vaadin Spring Portlet",
         "javax.portlet.security-role-ref=power-user,user",
         "com.vaadin.osgi.liferay.portlet-ui=true"})

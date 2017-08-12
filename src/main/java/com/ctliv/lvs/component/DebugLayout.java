@@ -3,9 +3,8 @@ package com.ctliv.lvs.component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.ctliv.lvs.bus.UIBus;
+import com.ctliv.lvs.spring.util.BeanUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -19,7 +18,8 @@ public class DebugLayout extends VerticalLayout {
 
 	private Log log = LogFactoryUtil.getLog(this.getClass());
 
-	@Autowired private UIBus uiBus;
+//	@Autowired 
+	private UIBus uiBus;
 	
 	public DebugLayout() {
 		log.debug("Creating...");
@@ -27,13 +27,14 @@ public class DebugLayout extends VerticalLayout {
 		this.addComponent(new Label("Mode: " + getPortletMode()));
 		this.addComponent(new Label("Users registered: " + 
 				getPortalCountOfRegisteredUsers().toString()));
+		uiBus = BeanUtil.getBean(UIBus.class);
+		this.addComponent(new Label("UIBus: " + uiBus.objToString()));
+		uiBus.register(this);
 		log.debug("Created...");
 	}
 
 	@PostConstruct
 	private void postCostruct() {
-		this.addComponent(new Label("UIBus: " + uiBus.objToString()));
-		uiBus.register(this);
 		log.debug("Initialized");
 	}
 	

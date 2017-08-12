@@ -1,27 +1,18 @@
 package com.ctliv.vportlet.ui;
 
-import javax.portlet.PortletContext;
 import javax.portlet.PortletMode;
-import javax.portlet.PortletSession;
 
 import org.osgi.service.component.annotations.Component;
 
 import com.ctliv.lvs.component.DebugLayout;
 import com.ctliv.lvs.spring.util.BeanUtil;
 import com.ctliv.lvs.ui.MultimodeUIExt;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.WrappedPortletSession;
-import com.vaadin.shared.ui.ContentMode;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
 
 @SuppressWarnings("serial")
 @Widgetset(AppWidgetSet.NAME)

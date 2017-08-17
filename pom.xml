@@ -29,14 +29,14 @@
 			com.ctliv.vportlet.*;version="${project.version}",
 			com.ctliv.lvs.*;version="${project.version}"
 		</private.package>
-		<import.package>
-			org.springframework.cglib.core;version="[4,5)",
-			org.springframework.cglib.proxy;version="[4,5)",
-			org.springframework.cglib.reflect;version="[4,5)",
-			org.springframework.beans;version="[4,5)",
-			org.springframework.beans.factory;version="[4,5)",
-			*
-		</import.package>
+<!-- 		<import.package> -->
+<!-- 			org.springframework.cglib.core;version="[4,5)", -->
+<!-- 			org.springframework.cglib.proxy;version="[4,5)", -->
+<!-- 			org.springframework.cglib.reflect;version="[4,5)", -->
+<!-- 			org.springframework.beans;version="[4,5)", -->
+<!-- 			org.springframework.beans.factory;version="[4,5)", -->
+<!-- 			* -->
+<!-- 		</import.package> -->
 		<export.package>
 			com.ctliv.vportlet.ui;version="${project.version}"
 		</export.package>
@@ -95,6 +95,19 @@
 	</dependencyManagement>
 
 	<dependencies>
+	
+		<!-- To be deployed to Liferay as OSGi bundles, in this order:
+		
+			org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar
+			com/vaadin/external/gentyref/1.2.0.vaadin1/gentyref-1.2.0.vaadin1.jar
+			com/vaadin/vaadin-shared/8.1.0/vaadin-shared-8.1.0.jar
+			com/vaadin/vaadin-server/8.1.0/vaadin-server-8.1.0.jar
+			com/vaadin/vaadin-osgi-integration/8.1.0/vaadin-osgi-integration-8.1.0.jar
+			com/vaadin/vaadin-client-compiled/8.1.0/vaadin-client-compiled-8.1.0.jar
+			com/vaadin/vaadin-themes/8.1.0/vaadin-themes-8.1.0.jar
+			com/vaadin/vaadin-liferay-integration/8.1.0/vaadin-liferay-integration-8.1.0.jar
+		
+		 -->
 
 		<!-- Liferay dependencies -->
 		<dependency>

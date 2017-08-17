@@ -29,14 +29,14 @@
 			com.ctliv.vportlet.*;version="${project.version}",
 			com.ctliv.lvs.*;version="${project.version}"
 		</private.package>
-<!-- 		<import.package> -->
-<!-- 			org.springframework.cglib.core;version="[4,5)", -->
-<!-- 			org.springframework.cglib.proxy;version="[4,5)", -->
-<!-- 			org.springframework.cglib.reflect;version="[4,5)", -->
-<!-- 			org.springframework.beans;version="[4,5)", -->
-<!-- 			org.springframework.beans.factory;version="[4,5)", -->
-<!-- 			* -->
-<!-- 		</import.package> -->
+		<import.package>
+			org.springframework.cglib.core;version="[4,5)",
+			org.springframework.cglib.proxy;version="[4,5)",
+			org.springframework.cglib.reflect;version="[4,5)",
+			org.springframework.beans;version="[4,5)",
+			org.springframework.beans.factory;version="[4,5)",
+			*
+		</import.package>
 		<export.package>
 			com.ctliv.vportlet.ui;version="${project.version}"
 		</export.package>
@@ -96,18 +96,26 @@
 
 	<dependencies>
 	
-		<!-- To be deployed to Liferay as OSGi bundles, in this order:
-		
-			org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar
-			com/vaadin/external/gentyref/1.2.0.vaadin1/gentyref-1.2.0.vaadin1.jar
-			com/vaadin/vaadin-shared/8.1.0/vaadin-shared-8.1.0.jar
-			com/vaadin/vaadin-server/8.1.0/vaadin-server-8.1.0.jar
-			com/vaadin/vaadin-osgi-integration/8.1.0/vaadin-osgi-integration-8.1.0.jar
-			com/vaadin/vaadin-client-compiled/8.1.0/vaadin-client-compiled-8.1.0.jar
-			com/vaadin/vaadin-themes/8.1.0/vaadin-themes-8.1.0.jar
-			com/vaadin/vaadin-liferay-integration/8.1.0/vaadin-liferay-integration-8.1.0.jar
-		
-		 -->
+			<!-- To be deployed to Liferay as OSGi bundles, in this order:
+			
+				optional: com/vaadin/external/flute/flute/1.3.0.gg2/flute-1.3.0.gg2.jar
+				optional: org/w3c/css/sac/1.3/sac-1.3.jar
+				optional: com/vaadin/vaadin-sass-compiler/0.9.13/vaadin-sass-compiler-0.9.13.jar
+				
+				optional: com/vaadin/external/slf4j/vaadin-slf4j-jdk14/1.6.1/vaadin-slf4j-jdk14-1.6.1.jar
+				optional: com/vaadin/external/atmosphere/atmosphere-runtime/2.4.11.vaadin1/atmosphere-runtime-2.4.11.vaadin1.jar
+				optional: com/vaadin/vaadin-push/8.1.1/vaadin-push-8.1.1.jar
+				
+				org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar
+				com/vaadin/external/gentyref/1.2.0.vaadin1/gentyref-1.2.0.vaadin1.jar
+				com/vaadin/vaadin-shared/8.1.1/vaadin-shared-8.1.1.jar
+				com/vaadin/vaadin-server/8.1.1/vaadin-server-8.1.1.jar
+				com/vaadin/vaadin-osgi-integration/8.1.1/vaadin-osgi-integration-8.1.1.jar
+				com/vaadin/vaadin-client-compiled/8.1.1/vaadin-client-compiled-8.1.1.jar
+				com/vaadin/vaadin-themes/8.1.1/vaadin-themes-8.1.1.jar
+				com/vaadin/vaadin-liferay-integration/8.1.1/vaadin-liferay-integration-8.1.1.jar
+			
+			 -->
 
 		<!-- Liferay dependencies -->
 		<dependency>
@@ -348,27 +356,27 @@
 
 	</build>
 
-	<profiles>
-		<profile>
-			<id>local-deploy</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
+<!-- 	<profiles> -->
+<!-- 		<profile> -->
+<!-- 			<id>local-deploy</id> -->
+<!-- 			<activation> -->
+<!-- 				<activeByDefault>true</activeByDefault> -->
+<!-- 			</activation> -->
 
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-deploy-plugin</artifactId>
-						<version>2.8.2</version>
-						<configuration>
-							<altDeploymentRepository>private-local-repo::default::file://${private.local.repo}</altDeploymentRepository>
-							<uniqueVersion>false</uniqueVersion>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+<!-- 			<build> -->
+<!-- 				<plugins> -->
+<!-- 					<plugin> -->
+<!-- 						<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 						<artifactId>maven-deploy-plugin</artifactId> -->
+<!-- 						<version>2.8.2</version> -->
+<!-- 						<configuration> -->
+<!-- 							<altDeploymentRepository>private-local-repo::default::file://${private.local.repo}</altDeploymentRepository> -->
+<!-- 							<uniqueVersion>false</uniqueVersion> -->
+<!-- 						</configuration> -->
+<!-- 					</plugin> -->
+<!-- 				</plugins> -->
+<!-- 			</build> -->
+<!-- 		</profile> -->
+<!-- 	</profiles> -->
 
 </project>

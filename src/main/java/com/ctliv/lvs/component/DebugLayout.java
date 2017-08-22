@@ -9,7 +9,9 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
+import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinPortletService;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
@@ -17,12 +19,16 @@ import com.vaadin.ui.VerticalLayout;
 public class DebugLayout extends VerticalLayout {
 
 	private Log log = LogFactoryUtil.getLog(this.getClass());
+	
+	private Button btn = new Button();
 
 //	@Autowired 
 	private UIBus uiBus;
 	
 	public DebugLayout() {
 		log.debug("Creating...");
+		btn.setIcon(VaadinIcons.SEARCH);
+		this.addComponent(btn);
 		this.addComponent(new Label("Portlet: " + getPortletContextName()));
 		this.addComponent(new Label("Mode: " + getPortletMode()));
 		this.addComponent(new Label("Users registered: " + 

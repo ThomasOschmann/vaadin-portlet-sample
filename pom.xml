@@ -255,9 +255,7 @@
 		        <version>1.4.1</version>
 		        <configuration>
 		            <rules>
-			            <dependencyConvergence>
-							<level>WARN</level>			            
-			            </dependencyConvergence>
+			            <dependencyConvergence/>
 		            </rules>
 		        </configuration>
 				<executions>

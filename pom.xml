@@ -16,29 +16,17 @@
 		
 		<vaadin.version>8.1.1</vaadin.version>
 		<vaadin.plugin.version>8.1.1</vaadin.plugin.version>
-		<vaadin.scope>provided</vaadin.scope>
-<!-- 		<vaadin.widgetset.mode>cdn</vaadin.widgetset.mode> -->
 		
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 
-<!-- 		<spring.version>4.3.10.RELEASE</spring.version> -->
-		<spring.version>4.1.9.RELEASE</spring.version>
-		<spring.scope>provided</spring.scope>
-
 		<private.package>
 			com.ctliv.vportlet.*;version="${project.version}",
-			com.ctliv.lvs.*;version="${project.version}"
 		</private.package>
 		<import.package>
-			org.springframework.cglib.core;version="[4,5)",
-			org.springframework.cglib.proxy;version="[4,5)",
-			org.springframework.cglib.reflect;version="[4,5)",
-			org.springframework.beans;version="[4,5)",
-			org.springframework.beans.factory;version="[4,5)",
 			*
 		</import.package>
 		<export.package>
-			com.ctliv.vportlet.ui;version="${project.version}"
+			com.ctliv.vportlet.export;version="${project.version}"
 		</export.package>
 	</properties>
 
@@ -57,22 +45,7 @@
 			<name>Public Ctliv Repository</name>
 			<url>https://ctliv.github.io/m2/</url>
 		</repository>
-		<!--
-		<repository>
-			<id>vaadin-prereleases</id>
-			<url>http://maven.vaadin.com/vaadin-prereleases</url>
-		</repository>
-		 -->
 	</repositories>
-
-	<pluginRepositories>
-		<!--
-		<pluginRepository>
-			<id>vaadin-prereleases</id>
-			<url>http://maven.vaadin.com/vaadin-prereleases</url>
-		</pluginRepository>
-		-->
-	</pluginRepositories>
 
 	<distributionManagement>
 		<repository>
@@ -124,80 +97,24 @@
 			<version>${liferay.kernel.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.liferay.portal</groupId>
-			<artifactId>com.liferay.util.slf4j</artifactId>
-			<version>1.0.1</version>
-			<scope>provided</scope>
-		</dependency>
 		
 		<!-- Vaadin dependencies -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
-			<scope>${vaadin.scope}</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
-			<scope>${vaadin.scope}</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
-			<scope>${vaadin.scope}</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-osgi-integration</artifactId>
-			<version>${vaadin.version}</version>
-			<scope>${vaadin.scope}</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-liferay-integration</artifactId>
-			<version>${vaadin.version}</version>
-			<scope>${vaadin.scope}</scope>
+			<scope>provided</scope>
 		</dependency>
 		
-		<!-- Spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-			<scope>${spring.scope}</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-			<scope>${spring.scope}</scope>
-		</dependency>
-		
-		<!-- Vaadin-spring bridge -->
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-spring</artifactId>
-			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-web</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-api</artifactId>
-				</exclusion>
-			</exclusions>			
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>22.0</version>
-			<scope>compile</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>javax.portlet</groupId>
 			<artifactId>portlet-api</artifactId>
@@ -269,32 +186,6 @@
 				</executions>
 		    </plugin>
 
-			<!-- As we are doing "inplace" GWT compilation, ensure the widgetset -->
-			<!-- directory is cleaned properly -->
-<!-- 			<plugin> -->
-<!-- 				<artifactId>maven-clean-plugin</artifactId> -->
-<!-- 				<version>2.4.1</version> -->
-<!-- 				<configuration> -->
-<!-- 					<filesets> -->
-<!-- 						<fileset> -->
-<!-- 							<directory>src/main/webapp/VAADIN/widgetsets</directory> -->
-<!-- 						</fileset> -->
-<!-- 					</filesets> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-jar-plugin</artifactId> -->
-<!-- 				<version>2.6</version> -->
-<!-- 				<configuration> -->
-<!-- 					<archive> -->
-<!-- 						<manifestFile> -->
-<!-- 							${project.build.outputDirectory}/META-INF/MANIFEST.MF -->
-<!-- 						</manifestFile> -->
-<!-- 					</archive> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
 			<plugin>
 				<groupId>com.vaadin</groupId>
 				<artifactId>vaadin-maven-plugin</artifactId>
@@ -334,7 +225,7 @@
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
 <!-- 						<_exportcontents>*</_exportcontents> -->
-						<Bundle-Activator>com.ctliv.vportlet.ui.Activator</Bundle-Activator>
+						<Bundle-Activator>com.ctliv.vportlet.export.Activator</Bundle-Activator>
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 <!-- 						<_sources>true</_sources> -->
@@ -342,19 +233,6 @@
 				</configuration>
 			</plugin>
 
-<!-- 			<plugin> -->
-<!-- 				<groupId>biz.aQute.bnd</groupId> -->
-<!-- 				<artifactId>bnd-maven-plugin</artifactId> -->
-<!-- 				<version>3.3.0</version> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<goals> -->
-<!-- 							<goal>bnd-process</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
-			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
@@ -364,27 +242,6 @@
 					<uniqueVersion>false</uniqueVersion>
 				</configuration>
 			</plugin>
-
 		</plugins>
-
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<configuration>
-						<wtpversion>2.0</wtpversion>
-						<additionalProjectnatures>
-							<projectnature>com.vaadin.integration.eclipse.widgetsetNature</projectnature>
-						</additionalProjectnatures>
-						<additionalBuildcommands>
-							<buildcommand>com.vaadin.integration.eclipse.widgetsetBuilder</buildcommand>
-							<buildcommand>com.vaadin.integration.eclipse.addonStylesBuilder</buildcommand>
-						</additionalBuildcommands>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-
 	</build>
-
 </project>

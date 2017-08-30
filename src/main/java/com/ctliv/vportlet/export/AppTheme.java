@@ -1,4 +1,4 @@
-package com.ctliv.vportlet.ui;
+package com.ctliv.vportlet.export;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -8,7 +8,7 @@ import com.vaadin.ui.themes.ValoTheme;
 @Component(immediate = true, service = OsgiVaadinTheme.class)
 public class AppTheme extends ValoTheme implements OsgiVaadinTheme {
 	
-	public static final String NAME = "com.ctliv.vportlet.ui.AppTheme";
+	public static final String NAME = "com.ctliv.vportlet.AppTheme";
 	
     @Override
     public String getName() {

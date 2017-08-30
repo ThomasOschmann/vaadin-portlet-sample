@@ -1,10 +1,7 @@
-package com.ctliv.lvs.component;
+package com.ctliv.vportlet.component;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
-import com.ctliv.lvs.bus.UIBus;
-import com.ctliv.lvs.spring.util.BeanUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -22,9 +19,6 @@ public class DebugLayout extends VerticalLayout {
 	
 	private Button btn = new Button();
 
-//	@Autowired 
-	private UIBus uiBus;
-	
 	public DebugLayout() {
 		log.debug("Creating...");
 		btn.setIcon(VaadinIcons.SEARCH);
@@ -33,9 +27,6 @@ public class DebugLayout extends VerticalLayout {
 		this.addComponent(new Label("Mode: " + getPortletMode()));
 		this.addComponent(new Label("Users registered: " + 
 				getPortalCountOfRegisteredUsers().toString()));
-		uiBus = BeanUtil.getBean(UIBus.class);
-		this.addComponent(new Label("UIBus: " + uiBus.objToString()));
-		uiBus.register(this);
 		log.debug("Created...");
 	}
 
@@ -44,11 +35,6 @@ public class DebugLayout extends VerticalLayout {
 		log.debug("Initialized");
 	}
 	
-	@PreDestroy
-	private void preDestroy() {
-		uiBus.unregister(this);
-	}
-
 	private String getPortletMode() {
 		try {
 			return VaadinPortletService

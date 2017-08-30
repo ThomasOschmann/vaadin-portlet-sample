@@ -1,4 +1,4 @@
-package com.ctliv.lvs.ui;
+package com.ctliv.vportlet.util;
 
 import java.util.HashMap;
 

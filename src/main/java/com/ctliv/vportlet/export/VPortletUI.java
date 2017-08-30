@@ -1,12 +1,11 @@
-package com.ctliv.vportlet.ui;
+package com.ctliv.vportlet.export;
 
 import javax.portlet.PortletMode;
 
 import org.osgi.service.component.annotations.Component;
 
-import com.ctliv.lvs.component.DebugLayout;
-import com.ctliv.lvs.spring.util.BeanUtil;
-import com.ctliv.lvs.ui.MultimodeUIExt;
+import com.ctliv.vportlet.component.DebugLayout;
+import com.ctliv.vportlet.util.MultimodeUIExt;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.vaadin.annotations.Theme;
@@ -55,9 +54,9 @@ public class VPortletUI extends MultimodeUIExt {
 //        log.debug("Created: " + debugLayout);
 //        this.setComponent(PortletMode.EDIT, debugLayout);
     	
-    	this.setComponent(PortletMode.VIEW, BeanUtil.getBean(DebugLayout.class));
-    	this.setComponent(PortletMode.EDIT, BeanUtil.getBean(DebugLayout.class));
-        log.debug("UI set");
+    	this.setComponent(PortletMode.VIEW, new DebugLayout());
+    	this.setComponent(PortletMode.EDIT, new DebugLayout());
+        log.debug(this + " initialized");
     }
 
 //    private String getPortletContextName(VaadinRequest request) {

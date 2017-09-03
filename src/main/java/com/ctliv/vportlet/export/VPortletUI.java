@@ -13,7 +13,6 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 
-@SuppressWarnings("serial")
 @Widgetset(AppWidgetSet.NAME)
 @Theme(AppTheme.NAME)
 @Component(immediate = false, service = UI.class, property = {
@@ -23,6 +22,7 @@ import com.vaadin.ui.UI;
         "javax.portlet.display-name=Sample Vaadin Portlet",
         "javax.portlet.security-role-ref=power-user,user",
         "com.vaadin.osgi.liferay.portlet-ui=true"})
+@SuppressWarnings("serial")
 public class VPortletUI extends MultimodeUIExt {
 
     private Log log = LogFactoryUtil.getLog(this.getClass());

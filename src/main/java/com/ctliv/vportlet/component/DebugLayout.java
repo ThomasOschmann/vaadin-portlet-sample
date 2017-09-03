@@ -1,7 +1,5 @@
 package com.ctliv.vportlet.component;
 
-import javax.annotation.PostConstruct;
-
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -40,11 +38,6 @@ public class DebugLayout extends VerticalLayout {
 		log.debug("Created...");
 	}
 
-	@PostConstruct
-	private void postCostruct() {
-		log.debug("Initialized");
-	}
-	
 	private String getPortletMode() {
 		try {
 			return VaadinPortletService

@@ -8,7 +8,7 @@ import com.vaadin.ui.themes.ValoTheme;
 @Component(immediate = true, service = OsgiVaadinTheme.class)
 public class AppTheme extends ValoTheme implements OsgiVaadinTheme {
 	
-	public static final String NAME = "com.ctliv.vportlet.AppTheme";
+	public static final String NAME = "vportlet-theme";
 	
     @Override
     public String getName() {

@@ -17,14 +17,20 @@ import com.vaadin.ui.UI;
 @Theme(AppTheme.NAME)
 @Component(immediate = false, service = UI.class, property = {
         "com.liferay.portlet.display-category=category.sample",
-        "javax.portlet.name=com.ctliv.vportlet.VPortlet",
-        "javax.portlet.portlet-mode=text/html;view,edit",
-        "javax.portlet.display-name=Sample Vaadin Portlet",
+        "javax.portlet.name=" + VPortletUI.PORTLET_NAME,
+        "javax.portlet.portlet-mode=text/html;" + 
+        		VPortletUI.PORTLET_MODES,
+        "javax.portlet.display-name=" +
+        		VPortletUI.PORTLET_DESC,
         "javax.portlet.security-role-ref=power-user,user",
         "com.vaadin.osgi.liferay.portlet-ui=true"})
 @SuppressWarnings("serial")
 public class VPortletUI extends MultimodeUIExt {
 
+	public static final String PORTLET_NAME = "com.ctliv.vportlet.VPortlet";
+	public static final String PORTLET_DESC = "Sample Vaadin Portlet";
+	public static final String PORTLET_MODES = "view,edit";
+	
     private Log log = LogFactoryUtil.getLog(this.getClass());
 
     @Override

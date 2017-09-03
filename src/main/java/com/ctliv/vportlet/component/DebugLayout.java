@@ -9,6 +9,7 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinPortletService;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
@@ -16,17 +17,26 @@ import com.vaadin.ui.VerticalLayout;
 public class DebugLayout extends VerticalLayout {
 
 	private Log log = LogFactoryUtil.getLog(this.getClass());
-	
-	private Button btn = new Button();
 
 	public DebugLayout() {
 		log.debug("Creating...");
+		
+		Button btn = new Button();
+		btn.addClickListener(e -> log.debug("Clicked"));
 		btn.setIcon(VaadinIcons.SEARCH);
 		this.addComponent(btn);
+		
+		ComboBox<String> combo = new ComboBox<>("Prova");
+		combo.setItems("uno","due","tre");
+		this.addComponent(combo);
+		
 		this.addComponent(new Label("Portlet: " + getPortletContextName()));
+		
 		this.addComponent(new Label("Mode: " + getPortletMode()));
+		
 		this.addComponent(new Label("Users registered: " + 
 				getPortalCountOfRegisteredUsers().toString()));
+		
 		log.debug("Created...");
 	}
 

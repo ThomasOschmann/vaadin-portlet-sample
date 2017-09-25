@@ -67,7 +67,7 @@ public class DebugLayout extends VerticalLayout {
 		try {
 			result = UserLocalServiceUtil.getService().getUsersCount();
 		} catch (SystemException e) {
-			log.error(e);
+			log.debug(e);
 		}
 
 		return result;

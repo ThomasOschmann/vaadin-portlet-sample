@@ -8,7 +8,7 @@ import com.vaadin.osgi.resources.OsgiVaadinWidgetset;
 public class AppWidgetSet implements OsgiVaadinWidgetset {
 
 	//This maps to file "src/main/resources/com/github/ctliv/vportlet/AppWidgetSet.gwt.xml";
-	public static final String NAME = "com.github.ctliv.vportlet.AppWidgetSet";
+	public static final String NAME = "com.github.AppWidgetSet";
 
 	@Override
     public String getName() {

@@ -20,27 +20,33 @@
 		
 <!-- 		<bundle.activator>com.github.ctliv.vportlet.export.Activator</bundle.activator> -->
 
+<!-- 		<import.package> -->
+<!-- 			!com.google.gwt.*, -->
+<!-- 			!elemental.events, -->
+<!-- 			!com.vaadin.client.*, -->
+<!-- 			com.vaadin*;resolution:=optional;version="[8.1,9)", -->
+<!-- 			org.osgi.framework;version="[1.8,2)", -->
+<!-- 			com.liferay.counter.kernel.service;version="[1.0,2)", -->
+<!-- 			com.liferay.portal.kernel.exception;version="[7.0,8)", -->
+<!-- 			com.liferay.portal.kernel.log;version="[7.0,8)", -->
+<!-- 			com.liferay.portal.kernel.model;version="[1.0,2)", -->
+<!-- 			com.liferay.portal.kernel.portlet;version="[7.0,8)", -->
+<!-- 			com.liferay.portal.kernel.service;version="[1.0,2)", -->
+<!-- 			com.liferay.portal.kernel.util;version="[7.0,8)", -->
+<!-- 			javax.portlet*;version="[2.0,3)", -->
+<!-- 			javax.sql, -->
+<!-- 			javax.naming*, -->
+<!-- 			javax.xml.*, -->
+<!-- 			javax.management, -->
+<!-- 			org.xml.sax, -->
+<!-- 			org.w3c.dom*, -->
+<!-- 			elemental.* -->
+<!-- 		</import.package> -->
 		<import.package>
 			!com.google.gwt.*,
 			!elemental.events,
 			!com.vaadin.client.*,
-			com.vaadin*;resolution:=optional;version="[8.1,9)",
-			org.osgi.framework;version="[1.8,2)",
-			com.liferay.counter.kernel.service;version="[1.0,2)",
-			com.liferay.portal.kernel.exception;version="[7.0,8)",
-			com.liferay.portal.kernel.log;version="[7.0,8)",
-			com.liferay.portal.kernel.model;version="[1.0,2)",
-			com.liferay.portal.kernel.portlet;version="[7.0,8)",
-			com.liferay.portal.kernel.service;version="[1.0,2)",
-			com.liferay.portal.kernel.util;version="[7.0,8)",
-			javax.portlet*;version="[2.0,3)",
-			javax.sql,
-			javax.naming*,
-			javax.xml.*,
-			javax.management,
-			org.xml.sax,
-			org.w3c.dom*,
-			elemental.*
+			*
 		</import.package>
 		<export.package>
 			com.github.ctliv.vportlet.export;version="${project.version}"

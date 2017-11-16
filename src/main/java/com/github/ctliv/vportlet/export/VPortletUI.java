@@ -10,7 +10,6 @@ import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 
 @Widgetset(AppWidgetSet.NAME)
@@ -37,7 +36,7 @@ public class VPortletUI extends UI {
     	
 		ComboBox<String> combo = new ComboBox<>("Test combo:");
 		combo.setItems("One","Two","Three");
-		combo.addValueChangeListener(e -> Notification.show("Combo selection changed!", Notification.Type.TRAY_NOTIFICATION));
+//		combo.addValueChangeListener(e -> Notification.show("Combo selection changed!", Notification.Type.TRAY_NOTIFICATION));
 		
 //    	this.setContent(new DebugLayout());
 		this.setContent(combo);

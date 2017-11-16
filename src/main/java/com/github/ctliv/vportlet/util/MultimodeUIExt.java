@@ -1,4 +1,4 @@
-package com.ctliv.vportlet.util;
+package com.github.ctliv.vportlet.util;
 
 import java.util.HashMap;
 
@@ -13,18 +13,9 @@ import com.vaadin.ui.VerticalLayout;
 @SuppressWarnings("serial")
 public abstract class MultimodeUIExt extends UIExt {
 
-	private static final PortletMode DEFAULT_MODE = PortletMode.VIEW;
-	
 	private HashMap<PortletMode,AbstractComponent> map = new HashMap<>();
 	
 	private VerticalLayout layout = new VerticalLayout();
-	private AbstractComponent header = null;
-	private AbstractComponent footer = null;
-	
-//	@Override
-//	protected void init(VaadinRequest request) {
-//		selectMode(WebUtil.getPortletMode());
-//	}
 	
 	public MultimodeUIExt() {
 		layout.setMargin(false);
@@ -38,40 +29,24 @@ public abstract class MultimodeUIExt extends UIExt {
 		super.refresh(request);
 	}	
 	
-	public AbstractComponent getHeader() {
-		return header;
-	}
-	
-	public void setHeader(AbstractComponent header) {
-		this.header = header;
-	}
-	
-	public AbstractComponent getFooter() {
-		return footer;
-	}
-	
-	public void setFooter(AbstractComponent footer) {
-		this.footer = footer;
-	}
-	
 	private void selectMode(PortletMode mode) {
+		if (mode == null) throw new IllegalArgumentException("Mode cannot be null");
 		AbstractComponent component = map.get(mode);
-		if (component == null) component = map.get(DEFAULT_MODE);
 		layout.removeAllComponents();
-		if (header != null) layout.addComponent(header);
 		if (component != null) layout.addComponent(component);
-		if (footer != null) layout.addComponent(footer);
 		this.setContent(layout);
 	}
 	
 	public AbstractComponent getComponent(PortletMode mode) {
+		if (mode == null) throw new IllegalArgumentException("Mode cannot be null");
 		return map.get(mode);
 	}
 	
 	public void setComponent(PortletMode mode, AbstractComponent component) {
+		if (mode == null) throw new IllegalArgumentException("Mode cannot be null");
 		map.put(mode, component);
 		try {
-			//Select component based on current mode
+			//Immediately shows component if mode is current mode
 			selectMode(VaadinPortletService.getCurrentPortletRequest().getPortletMode());
 		} catch (Exception e) {	}
 	}

@@ -1,14 +1,13 @@
-package com.ctliv.vportlet.util;
+package com.github.ctliv.vportlet.util;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 
+@SuppressWarnings("serial")
 public abstract class UIExt extends UI {
 	
-	private static final long serialVersionUID = 1L;
-
     private Log log = LogFactoryUtil.getLog(this.getClass());
 	
 	public UIExt() {

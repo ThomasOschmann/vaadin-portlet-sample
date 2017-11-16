@@ -1,4 +1,4 @@
-package com.ctliv.vportlet.export;
+package com.github.ctliv.vportlet.export;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

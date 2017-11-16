@@ -8,6 +8,7 @@
 	<version>0.0.4-SNAPSHOT</version>
 	<name>Sample Vaadin Portlet for Liferay 7 (OSGi)</name>
 	<packaging>bundle</packaging>
+<!-- 	<packaging>war</packaging> -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,7 +18,7 @@
 		<vaadin.version>8.1.6</vaadin.version>
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 		
-		<bundle.activator>com.github.ctliv.vportlet.export.Activator</bundle.activator>
+<!-- 		<bundle.activator>com.github.ctliv.vportlet.export.Activator</bundle.activator> -->
 
 		<import.package>
 			!com.google.gwt.*,
@@ -227,13 +228,23 @@
 						<Bundle-Version>${project.version}</Bundle-Version>
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
-						<Bundle-Activator>${bundle.activator}</Bundle-Activator>
+<!-- 						<Bundle-Activator>${bundle.activator}</Bundle-Activator> -->
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 						<Bundle-RequiredExecutionEnvironment>JavaSE-1.8</Bundle-RequiredExecutionEnvironment>
 					</instructions>
 				</configuration>
 			</plugin>
+			
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-war-plugin</artifactId> -->
+<!-- 				<version>3.0.0</version> -->
+<!-- 				<configuration> -->
+<!-- 					<failOnMissingWebXml>false</failOnMissingWebXml> -->
+<!-- 					<packagingExcludes>WEB-INF/classes/VAADIN/widgetsets/WEB-INF/**</packagingExcludes> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 
 			<!-- The Jetty plugin allows us to easily test the development build by
 				running jetty:run on the command line. -->

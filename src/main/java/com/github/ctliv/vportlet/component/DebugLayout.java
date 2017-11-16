@@ -24,7 +24,7 @@ public class DebugLayout extends VerticalLayout {
 		btn.setIcon(VaadinIcons.SEARCH);
 		this.addComponent(btn);
 		
-		ComboBox<String> combo = new ComboBox<>("Prova");
+		ComboBox<String> combo = new ComboBox<>("Test combo:");
 		combo.setItems("One","Two","Three");
 		combo.addValueChangeListener(e -> Notification.show("Combo selection changed!", Notification.Type.TRAY_NOTIFICATION));
 		this.addComponent(combo);

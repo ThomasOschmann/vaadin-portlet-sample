@@ -7,6 +7,7 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinPortletService;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.VerticalLayout;
@@ -22,6 +23,11 @@ public class DebugLayout extends VerticalLayout {
 		btn.addClickListener(e -> Notification.show("Button clicked!", Notification.Type.TRAY_NOTIFICATION));
 		btn.setIcon(VaadinIcons.SEARCH);
 		this.addComponent(btn);
+		
+		ComboBox<String> combo = new ComboBox<>("Prova");
+		combo.setItems("One","Two","Three");
+		combo.addValueChangeListener(e -> Notification.show("Combo selection changed!", Notification.Type.TRAY_NOTIFICATION));
+		this.addComponent(combo);
 		
 		this.addComponent(new Label("Portlet: " + getPortletContextName()));
 		

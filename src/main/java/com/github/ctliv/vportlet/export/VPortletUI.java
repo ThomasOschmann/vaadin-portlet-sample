@@ -32,7 +32,7 @@ public class VPortletUI extends UI {
 //    private Log log = LogFactoryUtil.getLog(this.getClass());
 
     @Override
-    protected void init(VaadinRequest request) { 
+    protected void init(VaadinRequest request) {
     	
 		ComboBox<String> combo = new ComboBox<>("Test combo:");
 		combo.setItems("One","Two","Three");

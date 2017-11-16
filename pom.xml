@@ -18,8 +18,6 @@
 		<vaadin.version>8.1.6</vaadin.version>
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 		
-<!-- 		<bundle.activator>com.github.ctliv.vportlet.export.Activator</bundle.activator> -->
-
 <!-- 		<import.package> -->
 <!-- 			!com.google.gwt.*, -->
 <!-- 			!elemental.events, -->
@@ -43,9 +41,6 @@
 <!-- 			elemental.* -->
 <!-- 		</import.package> -->
 		<import.package>
-			!com.google.gwt.*,
-			!elemental.events,
-			!com.vaadin.client.*,
 			*
 		</import.package>
 		<export.package>
@@ -234,7 +229,6 @@
 						<Bundle-Version>${project.version}</Bundle-Version>
 						<Import-Package>${import.package}</Import-Package>
 						<Export-Package>${export.package}</Export-Package>
-<!-- 						<Bundle-Activator>${bundle.activator}</Bundle-Activator> -->
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 						<Bundle-RequiredExecutionEnvironment>JavaSE-1.8</Bundle-RequiredExecutionEnvironment>

@@ -1,38 +1,19 @@
+# Exclude all directories named "target"
+**/target/
+
 # Exclude settings files and directories (e.g.: Eclipse)
-\.*/
-\.*
+**\.*/
+**\.*
 
 # Keep .gitignore file
 !\.gitignore
 
-# Exclude all directories named "target"
-**/target/
+#Exclude IntelliJ IDEA files
+**/*.iml
 
 # Exclude VAADIN widgsets
 **/src/main/webapp/VAADIN/widgetsets/
 
-**/*.iml
-**/.ivy
-**/.classpath
-**/.project
-**/.sass-cache
-**/.settings
-**/bin
-**/build
-**/build_gradle
-**/node_modules
-**/test-coverage
-**/tmp
-**/.web_bundle_build
-.gradle
-.idea
-/bundles
-/gradle-*.properties
-/plugins-sdk/**/classes
-/plugins-sdk/**/ivy.xml.MD5
-/plugins-sdk/**/liferay-hook.xml.processed
-/plugins-sdk/build.*.properties
-/plugins-sdk/dependencies/**/*.jar
-/plugins-sdk/dist
-/plugins-sdk/lib
-test-results
+# Exclude VAADIN compiled themes
+**/src/main/webapp/VAADIN/themes/*/styles.css
+

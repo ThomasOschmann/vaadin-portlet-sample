@@ -23,7 +23,7 @@ public class VPortletUI extends UI {
 	public static final String PORTLET_CATEGORY = "Vaadin samples"; //Use "category.sample" for predefined Liferay samples category
 	public static final String PORTLET_NAME = "com.github.ctliv.vportlet.VPortlet";
 	public static final String PORTLET_DESC = "Sample Vaadin Portlet";
-	public static final String PORTLET_MODES = "view,edit";
+	public static final String PORTLET_MODES = "view";
 	
 //    private Log log = LogFactoryUtil.getLog(this.getClass());
 

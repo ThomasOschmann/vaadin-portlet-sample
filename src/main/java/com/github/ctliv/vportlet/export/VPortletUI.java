@@ -29,23 +29,17 @@ public class VPortletUI extends UI {
 	public static final String PORTLET_DESC = "Sample Vaadin Portlet";
 	public static final String PORTLET_MODES = "view";
 	
-//    private Log log = LogFactoryUtil.getLog(this.getClass());
-
     @Override
     protected void init(VaadinRequest request) {
     	
 		ComboBox<String> combo = new ComboBox<>("Test combo:");
 		combo.setItems("One","Two","Three");
-//		combo.addValueChangeListener(e -> Notification.show("Combo selection changed!", Notification.Type.TRAY_NOTIFICATION));
+		setContent(combo);
 		
-//    	this.setContent(new DebugLayout());
-		this.setContent(combo);
-
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = VPortletUI.class, productionMode = false)
-    public static class VPortletUIServlet extends VaadinServlet {
+    public static class MyUIServlet extends VaadinServlet {
     }
-    
 }

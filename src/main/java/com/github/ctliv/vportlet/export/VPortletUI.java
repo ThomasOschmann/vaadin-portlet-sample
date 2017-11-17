@@ -2,8 +2,6 @@ package com.github.ctliv.vportlet.export;
 
 import javax.servlet.annotation.WebServlet;
 
-import org.osgi.service.component.annotations.Component;
-
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
@@ -12,15 +10,8 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.UI;
 
-@Widgetset(AppWidgetSet.NAME)
-@Theme(AppTheme.NAME)
-@Component(immediate = false, service = UI.class, property = {
-        "com.liferay.portlet.display-category=" + VPortletUI.PORTLET_CATEGORY,
-        "javax.portlet.name=" + VPortletUI.PORTLET_NAME,
-        "javax.portlet.display-name=" + VPortletUI.PORTLET_DESC,
-        "javax.portlet.portlet-mode=text/html;" + VPortletUI.PORTLET_MODES,
-        "javax.portlet.security-role-ref=power-user,user",
-        "com.vaadin.osgi.liferay.portlet-ui=true"})
+@Widgetset("com.ctliv.AppWidgetSet")
+@Theme("vportlet-theme")
 @SuppressWarnings("serial")
 public class VPortletUI extends UI {
 
@@ -37,7 +28,7 @@ public class VPortletUI extends UI {
 		setContent(combo);
 		
     }
-
+    
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = VPortletUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {

@@ -17,5 +17,5 @@ Before portlet, deploy the following bundles:
   - https://repo1.maven.org/maven2/com/vaadin/vaadin-themes/8.1.6/vaadin-themes-8.1.6.jar
   - https://repo1.maven.org/maven2/com/vaadin/vaadin-liferay-integration/8.1.6/vaadin-liferay-integration-8.1.6.jar
       WARNING for Vaadin-Liferay-Integration, See:
-				https://github.com/vaadin/framework/issues/10220#issuecomment-342945718
+      - https://github.com/vaadin/framework/issues/10220#issuecomment-342945718
  

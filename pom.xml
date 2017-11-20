@@ -163,8 +163,9 @@
 					<execution>
 						<id>default</id>
 						<goals>
-							<!-- disabled to avoid widgetset cleanup every "mvn clean install". Widgetset must be manually cleaned, if necessary --> 
+							<!-- disabled to avoid widgetset cleanup every "mvn clean install". Widgetset must be manually cleaned, if necessary  
 							<goal>clean</goal>
+							-->
 							<goal>update-theme</goal>
 							<goal>compile-theme</goal>
 							<goal>update-widgetset</goal>

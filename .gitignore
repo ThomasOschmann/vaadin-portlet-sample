@@ -1,15 +1,16 @@
+# Hidden folders
+**/\.*/
 # Hidden files (except ".gitignore")
-**\.*/
-**\.*
+**/\.*
 !\.gitignore
 
 # Maven
 **/target/
 
 # IntelliJ IDEA
-**/*.iml
+**/*\.iml
 
 # VAADIN
-**/src/main/webapp/VAADIN/widgetsets/
+# **/src/main/webapp/VAADIN/widgetsets/
 **/src/main/webapp/VAADIN/themes/*/styles.css
 **/src/main/webapp/VAADIN/themes/*/addons.scss

@@ -87,17 +87,17 @@
 			<scope>${vaadin.scope}</scope>
 		</dependency>
 		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.vaadin.addons</groupId> -->
-<!-- 			<artifactId>autocomplete</artifactId> -->
-<!-- 			<version>0.2.2</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.vaadin.addons</groupId>
+			<artifactId>autocomplete</artifactId>
+			<version>0.2.2</version>
+		</dependency>
 
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.vaadin.addon</groupId> -->
-<!-- 			<artifactId>geolocation</artifactId> -->
-<!-- 			<version>0.1.0</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>com.vaadin.addon</groupId>
+			<artifactId>geolocation</artifactId>
+			<version>0.1.0</version>
+		</dependency>
 				
 		<!--  
 		<dependency>

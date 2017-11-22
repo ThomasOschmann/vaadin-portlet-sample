@@ -19,30 +19,27 @@
 		<vaadin.scope>provided</vaadin.scope>
 		<liferay.kernel.version>2.0.0</liferay.kernel.version>
 		
-<!-- 		<import.package> -->
-<!-- 			!com.google.gwt.*, -->
-<!-- 			!elemental.events, -->
-<!-- 			!com.vaadin.client.*, -->
-<!-- 			com.vaadin*;resolution:=optional;version="[8.1,9)", -->
-<!-- 			org.osgi.framework;version="[1.8,2)", -->
-<!-- 			com.liferay.counter.kernel.service;version="[1.0,2)", -->
-<!-- 			com.liferay.portal.kernel.exception;version="[7.0,8)", -->
-<!-- 			com.liferay.portal.kernel.log;version="[7.0,8)", -->
-<!-- 			com.liferay.portal.kernel.model;version="[1.0,2)", -->
-<!-- 			com.liferay.portal.kernel.portlet;version="[7.0,8)", -->
-<!-- 			com.liferay.portal.kernel.service;version="[1.0,2)", -->
-<!-- 			com.liferay.portal.kernel.util;version="[7.0,8)", -->
-<!-- 			javax.portlet*;version="[2.0,3)", -->
-<!-- 			javax.sql, -->
-<!-- 			javax.naming*, -->
-<!-- 			javax.xml.*, -->
-<!-- 			javax.management, -->
-<!-- 			org.xml.sax, -->
-<!-- 			org.w3c.dom*, -->
-<!-- 			elemental.* -->
-<!-- 		</import.package> -->
 		<import.package>
-			*
+			!com.google.gwt.*,
+			!elemental.events,
+			!com.vaadin.client.*,
+			com.vaadin*;resolution:=optional;version="[8.1,9)",
+			org.osgi.framework;version="[1.8,2)",
+			com.liferay.counter.kernel.service;version="[1.0,2)",
+			com.liferay.portal.kernel.exception;version="[7.0,8)",
+			com.liferay.portal.kernel.log;version="[7.0,8)",
+			com.liferay.portal.kernel.model;version="[1.0,2)",
+			com.liferay.portal.kernel.portlet;version="[7.0,8)",
+			com.liferay.portal.kernel.service;version="[1.0,2)",
+			com.liferay.portal.kernel.util;version="[7.0,8)",
+			javax.portlet*;version="[2.0,3)",
+			javax.sql,
+			javax.naming*,
+			javax.xml.*,
+			javax.management,
+			org.xml.sax,
+			org.w3c.dom*,
+			elemental.*
 		</import.package>
 		<export.package>
 			com.github.ctliv.vportlet.export;version="${project.version}"
@@ -188,8 +185,9 @@
 					<execution>
 						<id>default</id>
 						<goals>
-							<!-- disabled to avoid widgetset cleanup every "mvn clean install". Widgetset must be manually cleaned, if necessary --> 
+							<!-- disabled to avoid widgetset cleanup every "mvn clean install". Widgetset must be manually cleaned, if necessary 
 							<goal>clean</goal>
+							 -->
 							<goal>update-theme</goal>
 							<goal>compile-theme</goal>
 							<goal>update-widgetset</goal>
@@ -233,6 +231,7 @@
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 						<Bundle-RequiredExecutionEnvironment>JavaSE-1.8</Bundle-RequiredExecutionEnvironment>
+						<Web-ContextPath>/vportlet</Web-ContextPath>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -248,7 +247,7 @@
 <!-- 			</plugin> -->
 
 			<!-- The Jetty plugin allows us to easily test the development build by
-				running jetty:run on the command line. -->
+				running jetty:run on the command line.
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
@@ -257,6 +256,7 @@
 					<scanIntervalSeconds>2</scanIntervalSeconds>
 				</configuration>
 			</plugin>
+			 -->
 		</plugins>
 	</build>
 </project>

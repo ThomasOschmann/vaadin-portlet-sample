@@ -231,7 +231,7 @@
 						<Embed-Dependency>*;scope=compile|runtime;inline=false</Embed-Dependency>
 						<Embed-Transitive>true</Embed-Transitive>
 						<Bundle-RequiredExecutionEnvironment>JavaSE-1.8</Bundle-RequiredExecutionEnvironment>
-						<Web-ContextPath>/vportlet</Web-ContextPath>
+						<Web-ContextPath>/${project.artifactId}</Web-ContextPath>
 					</instructions>
 				</configuration>
 			</plugin>

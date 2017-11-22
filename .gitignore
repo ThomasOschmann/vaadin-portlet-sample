@@ -1,19 +1,21 @@
-# Exclude all directories named "target"
-**/target/
-
-# Exclude settings files and directories (e.g.: Eclipse)
-**\.*/
-**\.*
-
-# Keep .gitignore file
+# Hidden folders
+**/\.*/
+# Hidden files (except ".gitignore")
+**/\.*
 !\.gitignore
 
-#Exclude IntelliJ IDEA files
-**/*.iml
+# Maven
+**/target/
 
-# Exclude VAADIN widgsets
-**/src/main/webapp/VAADIN/widgetsets/
+# Windows
+**/Thumbs.db
 
-# Exclude VAADIN compiled themes
+# IntelliJ IDEA
+**/*\.iml
+**/*\.ipr
+**/*\.iws
+
+# VAADIN
+# **/src/main/webapp/VAADIN/widgetsets/
 **/src/main/webapp/VAADIN/themes/*/styles.css
-
+**/src/main/webapp/VAADIN/themes/*/addons.scss

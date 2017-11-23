@@ -38,8 +38,9 @@ public class VPortletUI extends UI {
 		
     }
 
-    @Component(service = VaadinServlet.class, property = {
-            "osgi.http.whiteboard.servlet.pattern=/vportlet"})
+    @Component(service = VaadinServlet.class //, 
+    		//property = {"osgi.http.whiteboard.servlet.pattern=/vportlet"}
+    )
     @WebServlet(urlPatterns = "/*", name = "VPortletUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = VPortletUI.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {

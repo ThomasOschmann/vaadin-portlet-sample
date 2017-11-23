@@ -1,10 +1,14 @@
 package com.github.ctliv.vportlet.export;
 
+import javax.servlet.annotation.WebServlet;
+
 import org.osgi.service.component.annotations.Component;
 
 import com.vaadin.annotations.Theme;
+import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.annotations.Widgetset;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.UI;
 
@@ -32,6 +36,13 @@ public class VPortletUI extends UI {
 		combo.setItems("One","Two","Three");
 		setContent(combo);
 		
+    }
+    
+    @Component(service = VaadinServlet.class)
+    @WebServlet(urlPatterns = "/*", name = "VPortletUIServlet", asyncSupported = true)
+    @VaadinServletConfiguration(ui = VPortletUI.class, productionMode = false)
+    public class VPortletServlet extends VaadinServlet {
+
     }
 
 }

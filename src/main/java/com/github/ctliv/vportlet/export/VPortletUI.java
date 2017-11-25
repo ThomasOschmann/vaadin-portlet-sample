@@ -13,7 +13,7 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.UI;
 
-@Widgetset(AppWidgetSet.NAME)
+@Widgetset("com.vaadin.DefaultWidgetSet")
 @Theme(AppTheme.NAME)
 @Component(immediate = false, service = UI.class, property = {
         "com.liferay.portlet.display-category=" + VPortletUI.PORTLET_CATEGORY,

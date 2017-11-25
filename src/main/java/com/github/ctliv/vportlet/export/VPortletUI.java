@@ -39,10 +39,10 @@ public class VPortletUI extends UI {
     }
     
     @Component(service = VaadinServlet.class)
-    @WebServlet(urlPatterns = "/*", name = "VPortletUIServlet", asyncSupported = true)
+    @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
     @VaadinServletConfiguration(ui = VPortletUI.class, productionMode = false)
-    public class VPortletServlet extends VaadinServlet {
-
+    public static class MyUIServlet extends VaadinServlet {
+    	
     }
 
 }

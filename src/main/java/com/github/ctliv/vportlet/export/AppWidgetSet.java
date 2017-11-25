@@ -7,7 +7,6 @@ import com.vaadin.osgi.resources.OsgiVaadinWidgetset;
 @Component(immediate = true, service = OsgiVaadinWidgetset.class)
 public class AppWidgetSet implements OsgiVaadinWidgetset {
 
-	//This maps to file "src/main/resources/com/github/ctliv/vportlet/AppWidgetSet.gwt.xml";
 	public static final String NAME = "com.ctliv.test.AppWidgetSet";
 
 	@Override

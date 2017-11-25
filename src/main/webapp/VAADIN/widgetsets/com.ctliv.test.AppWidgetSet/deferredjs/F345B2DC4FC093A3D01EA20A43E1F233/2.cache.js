@@ -1,0 +1,1 @@
+$wnd.com_ctliv_test_AppWidgetSet.runAsyncCallback2('defineClass(1818, 1, $intern_80);\n_.onSuccess_1 = function onSuccess_2(){\n  $setLoaded_0((!impl_3 && (impl_3 = new ConnectorBundleLoaderImpl) , impl_3), this.this$11.packageName);\n}\n;\n$entry(onLoad)(2);\n\n//# sourceURL=com.ctliv.test.AppWidgetSet-2.js\n')

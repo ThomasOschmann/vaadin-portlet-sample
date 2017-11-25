@@ -3,6 +3,7 @@ package com.github.ctliv.vportlet.export;
 import javax.servlet.annotation.WebServlet;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ServiceScope;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
@@ -20,7 +21,8 @@ import com.vaadin.ui.UI;
         "javax.portlet.display-name=" + VPortletUI.PORTLET_DESC,
         "javax.portlet.portlet-mode=text/html;" + VPortletUI.PORTLET_MODES,
         "javax.portlet.security-role-ref=power-user,user",
-        "com.vaadin.osgi.liferay.portlet-ui=true"})
+        "com.vaadin.osgi.liferay.portlet-ui=true"},
+		scope = ServiceScope.PROTOTYPE)
 @SuppressWarnings("serial")
 public class VPortletUI extends UI {
 

@@ -10,7 +10,7 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.ComboBox;
 import com.vaadin.ui.UI;
 
-@Widgetset("com.ctliv.AppWidgetSet")
+@Widgetset("com.ctliv.test.AppWidgetSet")
 @Theme("vportlet-theme")
 @SuppressWarnings("serial")
 public class VPortletUI extends UI {

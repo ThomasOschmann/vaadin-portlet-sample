@@ -156,7 +156,10 @@
 			</resource>
 			<resource>
 				<directory>src/main/webapp</directory>
-				<filtering>true</filtering>
+				<!-- WARN: Changing "filtering" to "true" produces error in the bundled widgetset
+						see: https://github.com/vaadin/framework/issues/10376 
+				-->
+				<filtering>false</filtering>
 			</resource>
 		</resources>
 

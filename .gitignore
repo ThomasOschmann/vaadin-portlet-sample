@@ -16,6 +16,6 @@
 **/*\.iws
 
 # VAADIN
-# **/src/main/webapp/VAADIN/widgetsets/
+**/src/main/webapp/VAADIN/widgetsets/
 **/src/main/webapp/VAADIN/themes/*/styles.css
 **/src/main/webapp/VAADIN/themes/*/addons.scss

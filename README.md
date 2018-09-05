@@ -1,21 +1,16 @@
 # vaadin-portlet-sample
 
 Sample OSGi portlet based on:
-  - Vaadin 8.1.6
-  - Liferay 7.0.6 GA5
+  - Vaadin 8.2.0
+  - Liferay 7
 
 Docker image for Liferay 7 (if needed):
-  - https://github.com/ctliv/docker-liferay-mysql/tree/7.0
+  - https://github.com/ctliv/docker-liferay-mysql
 
-Before portlet, deploy the following bundles:
-  - https://repo1.maven.org/maven2/org/jsoup/jsoup/1.8.3/jsoup-1.8.3.jar
-  - https://repo1.maven.org/maven2/com/vaadin/external/gentyref/1.2.0.vaadin1/gentyref-1.2.0.vaadin1.jar
-  - https://repo1.maven.org/maven2/com/vaadin/vaadin-shared/8.1.6/vaadin-shared-8.1.6.jar
-  - https://repo1.maven.org/maven2/com/vaadin/vaadin-server/8.1.6/vaadin-server-8.1.6.jar
-  - https://repo1.maven.org/maven2/com/vaadin/vaadin-osgi-integration/8.1.6/vaadin-osgi-integration-8.1.6.jar
-  - https://repo1.maven.org/maven2/com/vaadin/vaadin-client-compiled/8.1.6/vaadin-client-compiled-8.1.6.jar
-  - https://repo1.maven.org/maven2/com/vaadin/vaadin-themes/8.1.6/vaadin-themes-8.1.6.jar
-  - https://repo1.maven.org/maven2/com/vaadin/vaadin-liferay-integration/8.1.6/vaadin-liferay-integration-8.1.6.jar
-      WARNING for Vaadin-Liferay-Integration, See:
-      - https://github.com/vaadin/framework/issues/10220#issuecomment-342945718
- 
+Fix for Vaadin Server for Liferay 7.1+:
+  - https://github.com/ctliv/osgi-bundles/tree/master/vaadin-server-fix
+
+Fix for Vaadin Liferay Integration  
+  - https://github.com/ctliv/osgi-bundles/tree/master/vaadin-liferay-integration-fix
+  (see issue: https://github.com/vaadin/framework/issues/10220#issuecomment-342945718)
+   
